@@ -1,36 +1,68 @@
 import React from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
-// Import styled components ServerStyleSheet
+import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import GlobalStyle from '../components/GlobalStyle'
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    // Step 1: Create an instance of ServerStyleSheet
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
-    // Step 2: Retrieve styles from components in the page
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
-    // Step 3: Extract the styles as <style> tags
-    const styleTags = sheet.getStyleElement()
-    // Step 4: Pass styleTags as a prop
-    return { ...page, styleTags }
-  }
+    const originalRenderPage = ctx.renderPage
 
-  render() {
-    return (
-      <html lang="en">
-        <Head>
-          {/* Step 5: Output the styles in the head  */}
-          {this.props.styleTags}
-          <GlobalStyle />
-          <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    )
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            <GlobalStyle />
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
+    }
   }
 }
+
+// import Document, { Head, Main, NextScript } from 'next/document'
+// // Import styled components ServerStyleSheet
+// import { ServerStyleSheet } from 'styled-components'
+// import GlobalStyle from '../components/GlobalStyle'
+
+// export default class MyDocument extends Document {
+//   static getInitialProps({ renderPage }) {
+//     // Step 1: Create an instance of ServerStyleSheet
+//     const sheet = new ServerStyleSheet()
+//     // Step 2: Retrieve styles from components in the page
+//     // eslint-disable-next-line react/jsx-props-no-spreading
+//     const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
+//     // Step 3: Extract the styles as <style> tags
+//     const styleTags = sheet.getStyleElement()
+//     // Step 4: Pass styleTags as a prop
+//     return { ...page, styleTags }
+//   }
+
+//   render() {
+//     return (
+//       <html lang="en">
+//         <Head>
+//           {/* Step 5: Output the styles in the head  */}
+//           {this.props.styleTags}
+//           <GlobalStyle />
+//           <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+//         </Head>
+//         <body>
+//           <Main />
+//           <NextScript />
+//         </body>
+//       </html>
+//     )
+//   }
+// }
