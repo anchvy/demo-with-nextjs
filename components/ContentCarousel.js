@@ -24,17 +24,15 @@ const Wrapper = styled.div`
   // }
 
   ${ON_DESKTOP`
-    justify-content: space-between;
-    overflow-x: unset;
     padding: 0;
   `}
 `
-const ITEM_WIDTH = 270
 const Item = styled.article`
   border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  cursor: pointer;
   display: flex;
   padding: 0 0 12px 12px;
-  min-width: ${ITEM_WIDTH}px;
+  min-width: 270px;
   margin-right: 19px;
 `
 const ItemTitle = styled.div`

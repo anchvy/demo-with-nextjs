@@ -3,8 +3,9 @@
     "id": 1,
     "categoryName": "A",
     "title": "test Atest Atest Atest Atest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest Atest Atest A",
-    "author": "Woravan",
-    "createdAt": 1569594891478,
+    "author": "WoravanWoravanWoravanWoravan",
+    "authorImageUrl": "header.jpg",
+    "createdAt": "23 Dec 2019",
     "view": 123,
     "comment": 10,
     "imageName": "header.jpg"
@@ -14,7 +15,8 @@
     "categoryName": "B",
     "title": "test Btest Btest Btest B",
     "author": "Woravan",
-    "createdAt": 1569594891478,
+    "authorImageUrl": "header.jpg",
+    "createdAt": "23 Dec 2019",
     "view": 123,
     "comment": 10,
     "imageName": "header.jpg"
@@ -24,7 +26,8 @@
     "categoryName": "C",
     "title": "test Ctest C",
     "author": "Woravan",
-    "createdAt": 1569594891478,
+    "authorImageUrl": "header.jpg",
+    "createdAt": "23 Dec 2019",
     "view": 123,
     "comment": 10,
     "imageName": "header.jpg"
@@ -34,7 +37,8 @@
     "categoryName": "D",
     "title": "test D",
     "author": "Woravan",
-    "createdAt": 1569594891478,
+    "authorImageUrl": "header.jpg",
+    "createdAt": "23 Dec 2019",
     "view": 123,
     "comment": 10,
     "imageName": "header.jpg"

@@ -21,7 +21,7 @@ const Container = styled.div`
   padding: 24px ${LAYOUT_SPACING}px;
 
   ${ON_DESKTOP`
-    max-width: calc(1320px - (${LAYOUT_SPACING}px * 2));
+    max-width: calc(1320px + (${LAYOUT_SPACING}px * 2));
     margin: auto;
 `}
 `

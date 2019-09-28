@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   ${ON_DESKTOP`
     margin: auto;
-    max-width: calc(1175px - (${LAYOUT_SPACING}px * 2));
+    max-width: calc(1175px + (${LAYOUT_SPACING}px * 2));
   `}
 `
 
