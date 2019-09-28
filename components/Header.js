@@ -14,12 +14,8 @@ const Wrapper = styled.div`
   background: url('${getImagePath('header.jpg')}');
   background-position: center;
   background-size: cover;
-  height: 659px;
+  height: 100vh;
   position: relative;
-
-  ${ON_DESKTOP`
-    height: 786px;
-  `}
 `
 const StyledContainer = styled(Container)`
   display: flex;
