@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeComponent from '../components/Home/index'
+import HomeComponent from '../components/HomePage'
 
 const App = () => <HomeComponent />
 
