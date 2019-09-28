@@ -1,6 +1,8 @@
 import React from 'react'
 import App from 'next/app'
 
+import GlobalStyle from '../components/GlobalStyle'
+
 import Layout from '../components/Layout'
 
 class MyApp extends App {
@@ -8,9 +10,12 @@ class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <>
+        <GlobalStyle />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </>
     )
   }
 }

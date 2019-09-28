@@ -6,13 +6,17 @@ import NavigationBar from './NavigationBar'
 import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
 
 export const Container = styled.div`
-  padding: 0 ${LAYOUT_SPACING};
+  padding: 0 ${LAYOUT_SPACING}px;
 
   ${ON_DESKTOP`
     margin: auto;
-    max-width: calc(1175px - (${LAYOUT_SPACING} * 2));
+    max-width: calc(1175px - (${LAYOUT_SPACING}px * 2));
   `}
 `
+
+/* -------------------------------------------- *
+ * REACT COMPONENT
+ * -------------------------------------------- */
 
 const Layout = props => {
   return (

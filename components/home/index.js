@@ -7,6 +7,10 @@ import { Container } from '../Layout'
 
 const Wrapper = styled.div``
 
+/* -------------------------------------------- *
+ * REACT COMPONENT
+ * -------------------------------------------- */
+
 const HomeComponent = props => {
   return (
     <>
