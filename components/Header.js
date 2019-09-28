@@ -25,6 +25,7 @@ const StyledContainer = styled(Container)`
 `
 const TitleBox = styled.div`
   color: white;
+  flex-grow: 1;
 
   ${ON_DESKTOP`
     font-size: 21px;
@@ -32,7 +33,6 @@ const TitleBox = styled.div`
   `}
 `
 const CarouselBox = styled.div`
-  align-self: flex-end;
   height: 74px;
   margin-bottom: 12px;
   width: 100%;
