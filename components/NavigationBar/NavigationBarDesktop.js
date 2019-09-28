@@ -36,7 +36,6 @@ const SearchInput = styled.input`
 `
 const SearchButton = styled(ButtonLink)`
   border-radius: 0;
-  flex-shrink: 0;
   min-width: 44px;
 `
 

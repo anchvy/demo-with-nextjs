@@ -22,22 +22,29 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 `
 const TitleBox = styled.div`
+  align-items: flex-end;
   color: white;
+  display: flex;
   flex-grow: 1;
+  margin-bottom: 12px;
 
   ${ON_DESKTOP`
     font-size: 21px;
-    max-width: 521px;
+    margin-bottom: 110px;
+    width: 50%;
   `}
 `
 const CarouselBox = styled.div`
   height: 74px;
-  margin-bottom: 12px;
+  margin: 12px 0;
   width: 100%;
 
-  ${ON_DESKTOP`margin-bottom: 33px;`}
+  ${ON_DESKTOP`
+    margin: 33px 0;
+  `}
 `
 
 /* -------------------------------------------- *
