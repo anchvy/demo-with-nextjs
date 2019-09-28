@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
+import { ON_DESKTOP, LAYOUT_SPACING, FLEX_CENTER } from '../utils/style'
 import { Container } from './Layout'
 import { getImagePath } from '../utils/path'
 import ContentCarousel from './ContentCarousel'
+import { ReactComponent as IconChevronDown } from '../static/images/icon-chevron-down.svg'
+
 import useData from '../hooks/useData'
+import useDetectDevice from '../hooks/useDetectDevice'
 
 const Wrapper = styled.div`
   background: url('${getImagePath('header.jpg')}');
@@ -45,12 +48,21 @@ const CarouselBox = styled.div`
     margin: 33px 0;
   `}
 `
+const MoreInfoBox = styled.div`
+  color: white;
+  font-size: 10px;
+  flex-direction: column;
+  opacity: 0.5;
+
+  ${FLEX_CENTER}
+`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
  * -------------------------------------------- */
 
 const Header = () => {
+  const { isMobile } = useDetectDevice()
   const data = useData()
 
   return (
@@ -60,6 +72,12 @@ const Header = () => {
         <CarouselBox>
           <ContentCarousel items={data} />
         </CarouselBox>
+        {isMobile && (
+          <MoreInfoBox>
+            <span>Scroll Down for more</span>
+            <IconChevronDown width={28} height={28} fill="white" opacity="0.5" />
+          </MoreInfoBox>
+        )}
       </StyledContainer>
     </Wrapper>
   )

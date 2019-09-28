@@ -31,8 +31,6 @@ const Container = styled.div`
  * -------------------------------------------- */
 
 const NavigationBar = () => {
-  if (!process.browser) return null
-
   const { isDesktop } = useDetectDevice()
   const Content = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 

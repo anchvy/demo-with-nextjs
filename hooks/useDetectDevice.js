@@ -5,6 +5,8 @@ const isMobile = innerWidth => innerWidth <= MOBILE_MAX_WIDTH
 const isDesktop = innerWidth => innerWidth > MOBILE_MAX_WIDTH
 
 const useDetectDevice = () => {
+  if (!process.browser) return { isMobile: true, isDesktop: false }
+
   const [state, setState] = useState({
     isMobile: isMobile(window.innerWidth),
     isDesktop: isDesktop(window.innerWidth),
