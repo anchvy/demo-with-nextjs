@@ -128,7 +128,7 @@ const Article = React.memo(props => {
           <Title>{item.title}</Title>
         </TitleBox>
         <InfoBox>
-          <AuthorImage src={getImagePath(item.authorImageUrl)} />
+          <AuthorImage src={getImagePath(item.authorImageUrl)} alt={item.author} />
           <ArticleInfo>
             <AuthorName>{item.author}</AuthorName>
             <ArticleDate>{item.createdAt}</ArticleDate>
