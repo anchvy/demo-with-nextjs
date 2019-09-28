@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           {this.props.styles}
-          <link href="https://fonts.googleapis.com/css?family=Sarabun&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

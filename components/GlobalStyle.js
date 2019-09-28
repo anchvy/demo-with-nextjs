@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     font-size: 16px;
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
 `
 
