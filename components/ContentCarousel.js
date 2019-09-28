@@ -1,42 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { ON_DESKTOP } from '../utils/style'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
 import { getImagePath } from '../utils/path'
-import COLORS from '../utils/color'
 
 const Wrapper = styled.div`
   display: flex;
+  flex-wrap: nowrap;
   height: 100%;
   overflow-x: scroll;
-
-  ::-webkit-scrollbar {
-    height: 1px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: ${COLORS.LIGHT_GREEN};
-  }
+  padding: 0 ${LAYOUT_SPACING}px;
 
   ${ON_DESKTOP`
-    overflow-x: unset;
     justify-content: space-between;
+    overflow-x: unset;
+    padding: 0;
   `}
 `
 const ITEM_WIDTH = 270
 const Item = styled.article`
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
   display: flex;
   padding: 0 0 12px 12px;
   min-width: ${ITEM_WIDTH}px;
-
-  &:not(:last-child) {
-    margin-right: 19px;
-  }
-
-  ${ON_DESKTOP`
-    min-width: unset;
-    width: ${ITEM_WIDTH}px;
-  `}
+  margin-right: 19px;
 `
 const ItemTitle = styled.div`
   align-self: flex-end;

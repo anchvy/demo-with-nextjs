@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ON_DESKTOP } from '../utils/style'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
 import { Container } from './Layout'
 import { getImagePath } from '../utils/path'
 import ContentCarousel from './ContentCarousel'
@@ -39,8 +39,7 @@ const TitleBox = styled.div`
 `
 const CarouselBox = styled.div`
   height: 74px;
-  margin: 12px 0;
-  width: 100%;
+  margin: 12px -${LAYOUT_SPACING}px;
 
   ${ON_DESKTOP`
     margin: 33px 0;

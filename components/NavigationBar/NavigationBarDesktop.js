@@ -15,7 +15,7 @@ const ActionBox = styled.div`
   }
 `
 const SearchBox = styled.div`
-  flex-grow: 1;
+  flex: 1 0 auto;
   margin: 0 60px;
 `
 const SearchContainer = styled.div`

@@ -22,7 +22,7 @@ const Layout = props => {
   return (
     <div>
       <NavigationBar />
-      <div>{props.children}</div>
+      {props.children}
     </div>
   )
 }
