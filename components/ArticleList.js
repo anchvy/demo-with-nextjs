@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 
 const ArticleList = props => {
   const { items } = props
+
   return (
     <Wrapper>
       {items.map(item => (

@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
 
-  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.75);
+  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.5);
 
   &:hover {
     > ${FloatingWrapper} {

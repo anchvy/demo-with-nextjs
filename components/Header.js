@@ -52,6 +52,7 @@ const MoreInfoBox = styled.div`
   color: white;
   font-size: 10px;
   flex-direction: column;
+  margin-bottom: 15px;
   opacity: 0.5;
 
   ${FLEX_CENTER}
