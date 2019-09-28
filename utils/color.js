@@ -1,5 +1,9 @@
-export default {
-  lightGreen: '#43D29E',
-  lightBlue: '#9AABB8',
-  darkBlue: '#304351',
+const COLORS = {
+  LIGHT_GREEN: '#43D29E',
+  DARK_GREEN: '#2CB684',
+  LIGHT_BLUE: '#9AABB8',
+  DARK_BLUE: '#304351',
+  LIGHT_GRAY: '#E3E8F0',
 }
+
+export default COLORS
