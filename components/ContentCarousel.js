@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
 import { getImagePath } from '../utils/path'
+import COLORS from '../utils/color'
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,6 +11,17 @@ const Wrapper = styled.div`
   height: 100%;
   overflow-x: scroll;
   padding: 0 ${LAYOUT_SPACING}px;
+
+  // TODO: If the green line is a custom scorebar
+  // Please un-comment the below style :)
+
+  // ::-webkit-scrollbar {
+  //   height: 1px;
+  // }
+
+  // ::-webkit-scrollbar-thumb {
+  //   background: ${COLORS.LIGHT_GREEN};
+  // }
 
   ${ON_DESKTOP`
     justify-content: space-between;
@@ -34,6 +46,8 @@ const ItemTitle = styled.div`
   overflow: hidden;
 `
 const ItemImage = styled.img`
+  flex-shrink: 0;
+  height: 62px;
   margin-right: 15px;
   width: 62px;
 `
