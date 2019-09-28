@@ -13,7 +13,6 @@
   "author": "anchvy <anchvys@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15",
     "next": "^9.0.5",
     "next-images": "^1.2.0",
     "prop-types": "^15.7.2",
@@ -22,6 +21,7 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
