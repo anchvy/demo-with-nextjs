@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import Header from './Header'
 import { Container } from './Layout'
 import ArticleSection from './ArticleSection'
+import ShareBox from './ShareBox'
 
 import useData from '../hooks/useData'
 import { ON_DESKTOP } from '../utils/style'
-import ShareBox from './ShareBox'
 
 const StyledArticleSection = styled(ArticleSection)`
   padding: 44px 0;

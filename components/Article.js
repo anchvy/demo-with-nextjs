@@ -1,4 +1,4 @@
-import React, { setState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -131,8 +131,10 @@ const AuthorName = styled.span.attrs({ className: 'font-subtitle' })`
   font-weight: 600;
 `
 const ArticleHeaderBox = styled.div`
-  bottom: ${WRAPPER_PADDING}px;
-  left: ${WRAPPER_PADDING}px;
+  bottom: 0;
+  left: 0;
+  padding: ${WRAPPER_PADDING}px;
+  pointer-events: none;
   position: absolute;
 
   > ${Title} {
@@ -145,26 +147,39 @@ const ArticleHeaderBox = styled.div`
  * REACT COMPONENT
  * -------------------------------------------- */
 
+const EMPTY_FUNCTION = () => null
 const Article = React.memo(props => {
   const { item } = props
+  const [isActive, setIsActive] = useState(false)
+
+  const onFocus = () => setIsActive(true)
+  const onFocusOut = () => setIsActive(false)
 
   return (
-    <Wrapper imageName={item.imageName}>
+    <Wrapper
+      imageName={item.imageName}
+      onMouseEnter={onFocus}
+      onMouseOut={onFocusOut}
+      onFocus={EMPTY_FUNCTION}
+      onBlur={EMPTY_FUNCTION}
+    >
       {/* --- <FloatingWrapper> --- */}
-      <FloatingWrapper>
-        <ArticleBox>
-          <Title>{item.title}</Title>
-          <CategoryName>{item.categoryName}</CategoryName>
-          <Description>{item.title}</Description>
-        </ArticleBox>
-        <InfoBox>
-          <AuthorImage src={getImagePath(item.authorImageUrl)} alt={item.author} />
-          <ArticleInfoBox>
-            <AuthorName>{item.author}</AuthorName>
-            <ArticleDate>{item.createdAt}</ArticleDate>
-          </ArticleInfoBox>
-        </InfoBox>
-      </FloatingWrapper>
+      {isActive && (
+        <FloatingWrapper>
+          <ArticleBox>
+            <Title>{item.title}</Title>
+            <CategoryName>{item.categoryName}</CategoryName>
+            <Description>{item.title}</Description>
+          </ArticleBox>
+          <InfoBox>
+            <AuthorImage src={getImagePath(item.authorImageUrl)} alt={item.author} />
+            <ArticleInfoBox>
+              <AuthorName>{item.author}</AuthorName>
+              <ArticleDate>{item.createdAt}</ArticleDate>
+            </ArticleInfoBox>
+          </InfoBox>
+        </FloatingWrapper>
+      )}
       {/* --- </FloatingWrapper> --- */}
       <ArticleHeaderBox>
         <Title>{item.title}</Title>
