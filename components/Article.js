@@ -150,6 +150,7 @@ const Article = React.memo(props => {
 
   return (
     <Wrapper imageName={item.imageName}>
+      {/* --- <FloatingWrapper> --- */}
       <FloatingWrapper>
         <ArticleBox>
           <Title>{item.title}</Title>
@@ -164,6 +165,7 @@ const Article = React.memo(props => {
           </ArticleInfoBox>
         </InfoBox>
       </FloatingWrapper>
+      {/* --- </FloatingWrapper> --- */}
       <ArticleHeaderBox>
         <Title>{item.title}</Title>
         <CategoryName>{item.categoryName}</CategoryName>

@@ -12,7 +12,7 @@ const DEFAULT_STYLE = css`
   font-weight: 800;
   margin: 24px auto 0 auto;
 `
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({ className: 'font-subtitle' })`
   text-align: center;
 `
 const StyledButtonLink = styled(ButtonLink)`
