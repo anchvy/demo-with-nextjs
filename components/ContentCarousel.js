@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   `}
 `
 const Item = styled.article`
-  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   display: flex;
   padding: 0 0 12px 12px;
