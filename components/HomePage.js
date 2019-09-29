@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Header from './Header'
-import { Container } from './Layout'
+import Container from './styled/Container'
 import ArticleSection from './ArticleSection'
 import ShareBox from './ShareBox'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { ON_DESKTOP, LAYOUT_SPACING, FLEX_CENTER } from '../utils/style'
-import { Container } from './Layout'
+import Container from './styled/Container'
 import { getImagePath } from '../utils/path'
 import ContentCarousel from './ContentCarousel'
 import { ReactComponent as IconChevronDown } from '../static/images/icon-chevron-down.svg'

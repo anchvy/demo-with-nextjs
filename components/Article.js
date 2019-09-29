@@ -36,7 +36,7 @@ const StatBox = styled.div`
 
   > svg {
     fill: ${COLORS.GRAY};
-    fill-opacity: 0.2;
+    fill-opacity: 0.3;
     height: 18px;
     width: 18px;
   }
