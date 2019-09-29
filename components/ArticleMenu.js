@@ -35,7 +35,7 @@ const MenuItem = styled.span`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ArticleMenu = props => {
+const ArticleMenu = React.memo(props => {
   const { items, onClickMenuItem, activeItem, ...rest } = props
 
   return (
@@ -47,7 +47,7 @@ const ArticleMenu = props => {
       ))}
     </Wrapper>
   )
-}
+})
 
 ArticleMenu.propTypes = {
   activeItem: PropTypes.string,

@@ -8,7 +8,7 @@ import SeeMoreButton from './SeeMoreButton'
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ArticleSection = props => {
+const ArticleSection = React.memo(props => {
   const { items, seeMoreUrl, title, ...rest } = props
   if (items.length === 0) return null
 
@@ -18,7 +18,7 @@ const ArticleSection = props => {
       {seeMoreUrl && <SeeMoreButton title={title} />}
     </section>
   )
-}
+})
 
 ArticleSection.propTypes = {
   items: PropTypes.array,

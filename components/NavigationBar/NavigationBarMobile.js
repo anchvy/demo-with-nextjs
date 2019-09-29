@@ -17,6 +17,12 @@ const IconButton = styled(ButtonLink)`
   border-radius: 50%;
   min-width: unset;
   padding: 10px;
+
+  ${props =>
+    props.isHidden &&
+    css`
+      visibility: hidden;
+    `}
 `
 const StyledNavContainer = styled(NavItemsContainer)`
   ${props =>
@@ -30,7 +36,7 @@ const StyledNavContainer = styled(NavItemsContainer)`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const NavigationBarMobile = props => {
+const NavigationBarMobile = React.memo(props => {
   const { isCustomStyle } = props
   const [isOpenSideBar, setIsOpenSideBar] = useState(false)
 
@@ -38,23 +44,24 @@ const NavigationBarMobile = props => {
   // menu-icon: onclick handler
   const onClickMenuIcon = () => setIsOpenSideBar(!isOpenSideBar)
   // custom style
-  const svgColor = isCustomStyle ? 'black' : 'white'
-  const svgLogoSize = isCustomStyle ? 29 : 48
-  const svgIconSize = isCustomStyle ? 22 : 28
+  const shouldChangeStyle = isCustomStyle || isOpenSideBar
+  const svgColor = shouldChangeStyle ? 'black' : 'white'
+  const svgLogoSize = shouldChangeStyle ? 29 : 48
+  const svgIconSize = shouldChangeStyle ? 22 : 28
 
   return (
-    <StyledNavContainer isCustomStyle={isCustomStyle}>
+    <StyledNavContainer isCustomStyle={isCustomStyle || isOpenSideBar}>
       <IconButton type="secondary">
         <MenuIcon width={svgIconSize} height={svgIconSize} fill={svgColor} onClick={onClickMenuIcon} />
       </IconButton>
       <IconLogo height={svgLogoSize} fill={svgColor} />
-      <IconButton type="secondary">
+      <IconButton type="secondary" isHidden={isOpenSideBar}>
         <IconSearch width={svgIconSize} height={svgIconSize} fill={svgColor} />
       </IconButton>
-      <SideMenuMobile isOpen={isOpenSideBar} />
+      <SideMenuMobile isOpen={isOpenSideBar} onCloseSideBar={onClickMenuIcon} />
     </StyledNavContainer>
   )
-}
+})
 
 NavigationBarMobile.propTypes = {
   isCustomStyle: PropTypes.bool,

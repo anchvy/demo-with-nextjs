@@ -19,7 +19,7 @@ const Wrapper = styled.div`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ArticleList = props => {
+const ArticleList = React.memo(props => {
   const { items } = props
 
   return (
@@ -29,7 +29,7 @@ const ArticleList = props => {
       ))}
     </Wrapper>
   )
-}
+})
 
 ArticleList.propTypes = {
   items: PropTypes.array,

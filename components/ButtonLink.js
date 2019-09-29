@@ -37,7 +37,7 @@ const StyledButton = styled.a`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ButtonLink = props => {
+const ButtonLink = React.memo(props => {
   const { type, ...rest } = props
 
   return (
@@ -45,7 +45,7 @@ const ButtonLink = props => {
       {props.children}
     </StyledButton>
   )
-}
+})
 
 ButtonLink.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),

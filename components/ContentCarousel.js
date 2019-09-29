@@ -67,7 +67,7 @@ const ItemImage = styled.img`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ContentCarousel = props => {
+const ContentCarousel = React.memo(props => {
   const { items, ...rest } = props
   return (
     <Wrapper {...rest}>
@@ -82,7 +82,7 @@ const ContentCarousel = props => {
       ))}
     </Wrapper>
   )
-}
+})
 
 ContentCarousel.propTypes = {
   items: PropTypes.arrayOf(

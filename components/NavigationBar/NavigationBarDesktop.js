@@ -57,7 +57,7 @@ const StyledNavContainer = styled(NavItemsContainer)`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const NavigationBarDesktop = props => {
+const NavigationBarDesktop = React.memo(props => {
   const { isCustomStyle } = props
   // custom style
   const svgColor = isCustomStyle ? 'black' : 'white'
@@ -79,7 +79,7 @@ const NavigationBarDesktop = props => {
       </ActionBox>
     </StyledNavContainer>
   )
-}
+})
 
 NavigationBarDesktop.propTypes = {
   isCustomStyle: PropTypes.bool,

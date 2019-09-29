@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { ReactComponent as IconView } from '../static/images/icon-view.svg'
@@ -8,6 +8,7 @@ import { ReactComponent as IconComment } from '../static/images/icon-comment.svg
 import { ON_DESKTOP, LINE_CLAMP } from '../utils/style'
 import { getImagePath } from '../utils/path'
 import COLORS from '../utils/color'
+import useDetectDevice from '../hooks/useDetectDevice'
 
 const WRAPPER_PADDING = 20
 const FloatingWrapper = styled.div`
@@ -40,6 +41,15 @@ const StatBox = styled.div`
     height: 18px;
     width: 18px;
   }
+
+  ${props =>
+    props.isActive &&
+    css`
+      color: ${COLORS.DARK_BLUE};
+      > svg {
+        fill-opacity: 1;
+      }
+    `}
 `
 const StatLabel = styled.div`
   font-size: 12px;
@@ -57,13 +67,6 @@ const Wrapper = styled.article`
   height: 380px;
   position: relative;
   width: 100%;
-
-  &:hover {
-    > ${StatBox} {
-      color: ${COLORS.DARK_BLUE};
-      > svg { fill-opacity: 1; }
-    }
-  }
 
   ${ON_DESKTOP`
     height: 415px;
@@ -125,6 +128,7 @@ const ArticleDate = styled.span`
 const AuthorName = styled.span`
   font-style: italic;
   font-weight: 600;
+  white-space: nowrap;
 `
 const ArticleHeaderBox = styled.div`
   bottom: 0;
@@ -143,22 +147,19 @@ const ArticleHeaderBox = styled.div`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const EMPTY_FUNCTION = () => null
 const Article = React.memo(props => {
   const { item } = props
+  const { isDesktop } = useDetectDevice()
   const [isActive, setIsActive] = useState(false)
-
-  const onFocus = () => setIsActive(true)
-  const onFocusOut = () => setIsActive(false)
+  // wrapper: onclick handler
+  const onClick = () => {
+    setIsActive(prevState => !prevState)
+  }
+  // event key: depends on current device size
+  const eventKey = isDesktop ? 'onClick' : 'onTouchStart'
 
   return (
-    <Wrapper
-      imageName={item.imageName}
-      onMouseEnter={onFocus}
-      onMouseOut={onFocusOut}
-      onFocus={EMPTY_FUNCTION}
-      onBlur={EMPTY_FUNCTION}
-    >
+    <Wrapper imageName={item.imageName} {...{ [eventKey]: onClick }}>
       {/* --- <FloatingWrapper> --- */}
       {isActive && (
         <FloatingWrapper>
@@ -181,7 +182,7 @@ const Article = React.memo(props => {
         <Title>{item.title}</Title>
         <CategoryName>{item.categoryName}</CategoryName>
       </ArticleHeaderBox>
-      <StatBox>
+      <StatBox isActive={isActive}>
         {/* view stat */}
         <IconView />
         <StatLabel>123</StatLabel>
