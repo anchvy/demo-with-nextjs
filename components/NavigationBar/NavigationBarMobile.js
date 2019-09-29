@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import { ReactComponent as IconClose } from '../../static/images/icon-close.svg'
 import { ReactComponent as IconMenu } from '../../static/images/icon-menu.svg'

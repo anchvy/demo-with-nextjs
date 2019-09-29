@@ -13,7 +13,7 @@ const WRAPPER_PADDING = 20
 const FloatingWrapper = styled.div`
   background: white;
   border-radius: 15px 15px 0 0;
-  bottom: 0;
+  bottom: -1px;
   color: ${COLORS.DARK_BLUE};
   display: flex;
   flex-direction: column;
