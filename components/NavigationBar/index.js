@@ -46,8 +46,8 @@ const NavigationBar = () => {
       if (!isCustomStyle && offsetY > 100) setIsCustomStyle(true)
       else if (isCustomStyle && offsetY < 100) setIsCustomStyle(false)
       // : navbar appearance
-      if (offsetY > 100 && prevOffetY - offsetY < 0) setShouldHideBar(true)
-      else setShouldHideBar(false)
+      // if (offsetY > 100 && prevOffetY - offsetY < 0) setShouldHideBar(true)
+      // else setShouldHideBar(false)
 
       prevOffetY = offsetY
     }
