@@ -120,8 +120,12 @@ const ArticleInfoBox = styled.div`
 const ArticleDate = styled.span`
   color: ${COLORS.DARK_GRAY};
 
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+
+  ${ON_DESKTOP`
+    font-size: 14px;
+  `}
 `
 const AuthorName = styled.span.attrs({ className: 'font-subtitle' })`
   font-weight: 600;
