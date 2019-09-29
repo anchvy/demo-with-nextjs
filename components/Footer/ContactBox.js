@@ -73,7 +73,7 @@ const SOCIAL_MEDIA_CONFIG = [
 const ContactBox = () => {
   return (
     <Wrapper>
-      <IconLogo height={48} />
+      <IconLogo height={48} fill="white" />
       <Description>
         test Atest Atest Atest Atest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest Atest Atest AAtest
         AAtest Atest Atest Atest Atest Atest Atest Atest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest

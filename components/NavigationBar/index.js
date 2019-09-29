@@ -1,10 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect, useRef } from 'react'
+import styled, { css } from 'styled-components'
 // import PropTypes from 'prop-types'
 import NavigationBarDesktop from './NavigationBarDesktop'
 import NavigationBarMobile from './NavigationBarMobile'
-
-import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 import useDetectDevice from '../../hooks/useDetectDevice'
 
 const Wrapper = styled.header`
@@ -12,18 +10,19 @@ const Wrapper = styled.header`
   position: fixed;
   width: 100%;
   z-index: 1;
-`
-const Container = styled.div`
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: space-between;
-  padding: 24px ${LAYOUT_SPACING}px;
 
-  ${ON_DESKTOP`
-    max-width: calc(1320px + (${LAYOUT_SPACING}px * 2));
-    margin: auto;
-`}
+  ${props =>
+    props.isCustomStyle &&
+    css`
+      background: white;
+      box-shadow: 1px 1px 26px -1px rgba(0, 0, 0, 0.7);
+    `}
+
+  ${props =>
+    props.isHidden &&
+    css`
+      display: none;
+    `}
 `
 
 /* -------------------------------------------- *
@@ -32,15 +31,35 @@ const Container = styled.div`
 
 const NavigationBar = () => {
   const { isDesktop } = useDetectDevice()
+  const [isCustomStyle, setIsCustomStyle] = useState(false)
+  const [shouldHideBar, setShouldHideBar] = useState(false)
+
+  useEffect(() => {
+    let prevOffetY = window.pageYOffset
+
+    const onScroll = () => {
+      const offsetY = window.pageYOffset
+      // : custom style
+      // change style only when offset > 100
+      if (!isCustomStyle && offsetY > 100) setIsCustomStyle(true)
+      else if (isCustomStyle && offsetY < 100) setIsCustomStyle(false)
+      // : navbar appearance
+      if (offsetY > 100 && prevOffetY - offsetY < 0) setShouldHideBar(true)
+      else setShouldHideBar(false)
+
+      prevOffetY = offsetY
+    }
+
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isCustomStyle])
 
   if (!process.browser) return null
-  const Content = isDesktop ? NavigationBarDesktop : NavigationBarMobile
+  const Container = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 
   return (
-    <Wrapper>
-      <Container>
-        <Content />
-      </Container>
+    <Wrapper isCustomStyle={isCustomStyle} isHidden={shouldHideBar}>
+      <Container isCustomStyle={isCustomStyle} />
     </Wrapper>
   )
 }

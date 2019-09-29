@@ -1,19 +1,20 @@
 import { useState, useEffect, useMemo } from 'react'
 import MOCK_DATA from '../json/data.json'
 
-export const TYPE = {
-  RECOMMEND: 'RECOMMEND',
+export const QUERY_TYPE = {
+  ALL: 'ALL',
   LATEST: 'LATEST',
-  CATEGORY: 'CATEGORY',
+  CATEGORY_NAME: 'CATEGORY_NAME',
+  CATEGORIES: 'CATEGORIES',
 }
 
 const filterData = () => {
   return MOCK_DATA
 }
 
-const useData = type => {
+const useData = (type, options) => {
   // const [data, setData] = useState([])
-  const data = useMemo(() => filterData(), [type])
+  const data = useMemo(() => filterData(), [])
 
   // useEffect(() => {
 

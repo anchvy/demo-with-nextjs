@@ -7,7 +7,7 @@ import ArticleSection from './ArticleSection'
 import ArticleMenu from './ArticleMenu'
 import ShareBox from './ShareBox'
 
-import useData from '../hooks/useData'
+import useData, { QUERY_TYPE } from '../hooks/useData'
 import { ON_DESKTOP } from '../utils/style'
 import COLORS from '../utils/color'
 
@@ -53,8 +53,8 @@ const ALL_CATEGORY_ITEM = 'All'
 
 const HomeComponent = () => {
   const [activeCategoryName, setActiveCategoryName] = useState(ALL_CATEGORY_ITEM)
-  const data = useData(activeCategoryName)
-
+  const articles = useData(QUERY_TYPE.CATEGORY_NAME)
+  // menu-item: onclick handler
   const onClickMenuItem = event => {
     const categoryName = event.currentTarget.getAttribute('data-item')
     setActiveCategoryName(categoryName)
@@ -70,9 +70,9 @@ const HomeComponent = () => {
           items={[ALL_CATEGORY_ITEM, 'Casad', 'Dasdasd', 'asdasd', 'sdasd']}
           onClickMenuItem={onClickMenuItem}
         />
-        <StyledArticleSection items={data} title="recommended articles" seeMoreUrl="#" />
+        <StyledArticleSection items={articles} title="recommended articles" seeMoreUrl="#" />
         <SectionHeader>Latest Post</SectionHeader>
-        <StyledArticleSection items={data} title="latest posts" seeMoreUrl="#" />
+        <StyledArticleSection items={articles} title="latest posts" seeMoreUrl="#" />
         <ShareBox />
       </StyledContainer>
     </>

@@ -1,11 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
 
 import ButtonLink from '../ButtonLink'
+import { NavItemsContainer } from './style'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
 import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import COLORS from '../../utils/color'
+import { LAYOUT_SPACING } from '../../utils/style'
 
 const ActionBox = styled.div`
   flex-shrink: 0;
@@ -38,27 +41,67 @@ const SearchButton = styled(ButtonLink)`
   border-radius: 0;
   min-width: 44px;
 `
+const StyledNavContainer = styled(NavItemsContainer)`
+  ${props =>
+    props.isCustomStyle &&
+    css`
+      padding: 5px ${LAYOUT_SPACING}px;
+
+      svg {
+        fill: black;
+      }
+    `}
+`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const NavigationBarDesktop = () => (
-  <>
-    <IconLogo height={48} />
-    <SearchBox>
-      <SearchContainer>
-        <SearchInput placeholder="Search...." />
-        <SearchButton>
-          <IconSearch width={14} height={14} fill="white" />
-        </SearchButton>
-      </SearchContainer>
-    </SearchBox>
-    <ActionBox>
-      <ButtonLink>Sign in</ButtonLink>
-      <ButtonLink type="secondary">Sign up</ButtonLink>
-    </ActionBox>
-  </>
-)
+const NavigationBarDesktop = props => {
+  const { isCustomStyle } = props
+  const [isScrollUp, setIsScrollUp] = useState(false)
+
+  useEffect(() => {
+    let prevOffetY = window.pageYOffset
+    // scroll handler
+    const onScroll = () => {
+      const offsetY = window.pageYOffset
+
+      if (prevOffetY - offsetY < 0) setIsScrollUp(false)
+      else setIsScrollUp(true)
+
+      prevOffetY = offsetY
+    }
+
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <StyledNavContainer isCustomStyle={isCustomStyle}>
+      <IconLogo height={48} fill="white" />
+      <SearchBox>
+        <SearchContainer>
+          <SearchInput placeholder="Search...." />
+          <SearchButton>
+            <IconSearch width={14} height={14} fill="white" />
+          </SearchButton>
+        </SearchContainer>
+      </SearchBox>
+      <ActionBox>
+        <ButtonLink>Sign in</ButtonLink>
+        <ButtonLink type="secondary">Sign up</ButtonLink>
+      </ActionBox>
+    </StyledNavContainer>
+  )
+}
+
+NavigationBarDesktop.propTypes = {
+  isCustomStyle: PropTypes.bool,
+}
+
+NavigationBarDesktop.defaultProps = {
+  isCustomStyle: false,
+}
 
 export default NavigationBarDesktop
