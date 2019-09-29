@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import dynamic from 'next/dynamic'
 
-import Header from './Header'
 import Container from './styled/Container'
-import ArticleSection from './ArticleSection'
 import ArticleMenu from './ArticleMenu'
 import ShareBox from './ShareBox'
 
 import useData, { QUERY_TYPE } from '../hooks/useData'
 import { ON_DESKTOP } from '../utils/style'
 import COLORS from '../utils/color'
+
+const Header = dynamic(import('./Header'))
+const ArticleSection = dynamic(import('./ArticleSection'))
 
 const StyledArticleSection = styled(ArticleSection)`
   padding: 25px 0;
