@@ -19,12 +19,10 @@ const FloatingWrapper = styled.div`
   flex-direction: column;
   max-height: 100%;
   left: 0;
-  opacity: 0;
   padding: ${WRAPPER_PADDING}px;
   pointer-events: none;
   position: absolute;
   width: 100%;
-  transition: opacity 0.1s ease-in;
   z-index: 1;
 `
 const StatBox = styled.div`
@@ -38,7 +36,7 @@ const StatBox = styled.div`
 
   > svg {
     fill: ${COLORS.GRAY};
-    fill-opacity: 0.4;
+    fill-opacity: 0.2;
     height: 18px;
     width: 18px;
   }
@@ -61,10 +59,6 @@ const Wrapper = styled.article`
   width: 100%;
 
   &:hover {
-    > ${FloatingWrapper} {
-      opacity: 1;
-    }
-
     > ${StatBox} {
       color: ${COLORS.DARK_BLUE};
       > svg { fill-opacity: 1; }
