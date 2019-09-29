@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import COLORS from '../utils/color'
 
-const StyledButton = styled.a.attrs({ className: 'font-subtitle' })`
+const StyledButton = styled.a`
   align-items: center;
   background: ${COLORS.LIGHT_GREEN};
   border: 1px solid ${COLORS.LIGHT_GREEN};
@@ -12,6 +12,7 @@ const StyledButton = styled.a.attrs({ className: 'font-subtitle' })`
   color: white;
   cursor: pointer;
   display: inline-flex;
+  font-style: italic;
   justify-content: center;
   min-width: 150px;
   padding: 10px 0;

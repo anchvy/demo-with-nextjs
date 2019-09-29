@@ -48,7 +48,9 @@ const Title = styled.h1`
     margin-bottom: 33px;
   `}
 `
-const SubTitle = styled.span.attrs({ className: 'font-subtitle' })`
+const SubTitle = styled.span`
+  font-style: italic;
+
   ${ON_DESKTOP`
     font-size: 21px;
   `}

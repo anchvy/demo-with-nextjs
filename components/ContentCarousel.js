@@ -44,8 +44,9 @@ const ItemInfoBox = styled.div`
   display: flex;
   flex-direction: column;
 `
-const ItemSubTitle = styled.span.attrs({ className: 'font-subtitle' })`
+const ItemSubTitle = styled.span`
   color: white;
+  font-style: italic;
   font-weight: 800;
   line-height: 20px;
   overflow: hidden;

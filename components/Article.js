@@ -93,7 +93,8 @@ const ArticleBox = styled.div`
     margin-bottom: 13px;
   }
 `
-const Description = styled.span.attrs({ className: 'font-subtitle' })`
+const Description = styled.span`
+  font-style: italic;
   ${LINE_CLAMP(2)}
 `
 const InfoBox = styled.div`
@@ -121,7 +122,8 @@ const ArticleDate = styled.span`
     font-size: 14px;
   `}
 `
-const AuthorName = styled.span.attrs({ className: 'font-subtitle' })`
+const AuthorName = styled.span`
+  font-style: italic;
   font-weight: 600;
 `
 const ArticleHeaderBox = styled.div`

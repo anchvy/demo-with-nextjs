@@ -22,10 +22,6 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: underline;
     }
   }
-
-  .font-subtitle {
-    font-style: italic;
-  }
 `
 
 export default GlobalStyle
