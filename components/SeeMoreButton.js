@@ -37,11 +37,11 @@ const StyledSeeMoreButton = styled.a`
  * -------------------------------------------- */
 
 const SeeMoreButton = props => {
-  const { isDesktop } = useDetectDevice()
+  const { isDesktop, ...rest } = useDetectDevice()
   const title = `See more ${props.title}`
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       {isDesktop ? (
         <StyledSeeMoreButton>
           {title}

@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import Header from './Header'
 import { Container } from './Layout'
-import ArticleList from './ArticleList'
+import ArticleSection from './ArticleSection'
 
 import useData from '../hooks/useData'
 import { ON_DESKTOP } from '../utils/style'
-import SeeMoreButton from './SeeMoreButton'
 import ShareBox from './ShareBox'
 
-const ArticleSection = styled.div`
+const StyledArticleSection = styled(ArticleSection)`
   padding: 44px 0;
 `
 const StyledContainer = styled(Container)`
@@ -26,25 +24,15 @@ const StyledContainer = styled(Container)`
   `}
 `
 
-/* -------------------------------------------- *
- * REACT COMPONENT
- * -------------------------------------------- */
-
-const HomeComponent = props => {
+const HomeComponent = () => {
   const data = useData()
 
   return (
     <>
       <Header />
       <StyledContainer>
-        <ArticleSection>
-          <ArticleList items={data} />
-          <SeeMoreButton title="recommended articles" />
-        </ArticleSection>
-        <ArticleSection>
-          <ArticleList items={data} />
-          <SeeMoreButton title="latest posts" />
-        </ArticleSection>
+        <StyledArticleSection items={data} title="recommended articles" seeMoreUrl="#" />
+        <StyledArticleSection items={data} title="latest posts" seeMoreUrl="#" />
         <ShareBox />
       </StyledContainer>
     </>
