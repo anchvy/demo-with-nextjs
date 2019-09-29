@@ -35,6 +35,10 @@ const Item = styled.article`
   min-width: 270px;
   margin-right: 19px;
   overflow: hidden;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 const ItemInfoBox = styled.div`
   display: flex;
@@ -56,6 +60,10 @@ const ItemImage = styled.img`
   margin-right: 15px;
   width: 62px;
 `
+
+/* -------------------------------------------- *
+ * REACT COMPONENT
+ * -------------------------------------------- */
 
 const ContentCarousel = props => {
   const { items, ...rest } = props

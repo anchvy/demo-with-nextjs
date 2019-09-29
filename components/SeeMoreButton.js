@@ -20,14 +20,20 @@ const StyledButtonLink = styled(ButtonLink)`
   width: 100%;
   ${DEFAULT_STYLE}
 `
-const StyledSeeMoreButton = styled.a`
+const StyledSeeMoreButton = styled(ButtonLink)`
   // only for desktop
+  background: transparent;
+  border: none;
   color: ${COLORS.LIGHT_GREEN};
   font-size: 24px;
   padding: 10px;
 
   > svg {
     margin-left: 12px;
+  }
+
+  &:hover {
+    background: transparent;
   }
 
   ${DEFAULT_STYLE}
@@ -38,6 +44,8 @@ const StyledSeeMoreButton = styled.a`
 
 const SeeMoreButton = props => {
   const { isDesktop, ...rest } = useDetectDevice()
+
+  if (!process.browser) return null
   const title = `See more ${props.title}`
 
   return (

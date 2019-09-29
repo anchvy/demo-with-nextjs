@@ -6,13 +6,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box; 
     margin: 0; 
     padding: 0;
-    text-decoration: none;
+    word-break: break-word;
   }
   
   html, body {
     height: 100%;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .font-subtitle {

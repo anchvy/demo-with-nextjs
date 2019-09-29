@@ -25,6 +25,10 @@ const StyledContainer = styled(Container)`
   `}
 `
 
+/* -------------------------------------------- *
+ * REACT COMPONENT
+ * -------------------------------------------- */
+
 const HomeComponent = () => {
   const data = useData()
 
