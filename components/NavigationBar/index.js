@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-// import PropTypes from 'prop-types'
 import NavigationBarDesktop from './NavigationBarDesktop'
 import NavigationBarMobile from './NavigationBarMobile'
 import useDetectDevice from '../../hooks/useDetectDevice'
@@ -63,9 +62,5 @@ const NavigationBar = () => {
     </Wrapper>
   )
 }
-
-NavigationBar.propTypes = {}
-
-NavigationBar.defaultProps = {}
 
 export default NavigationBar

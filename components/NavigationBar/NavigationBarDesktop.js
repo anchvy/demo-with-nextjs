@@ -59,23 +59,6 @@ const StyledNavContainer = styled(NavItemsContainer)`
 
 const NavigationBarDesktop = props => {
   const { isCustomStyle } = props
-  const [isScrollUp, setIsScrollUp] = useState(false)
-
-  useEffect(() => {
-    let prevOffetY = window.pageYOffset
-    // scroll handler
-    const onScroll = () => {
-      const offsetY = window.pageYOffset
-
-      if (prevOffetY - offsetY < 0) setIsScrollUp(false)
-      else setIsScrollUp(true)
-
-      prevOffetY = offsetY
-    }
-
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
     <StyledNavContainer isCustomStyle={isCustomStyle}>

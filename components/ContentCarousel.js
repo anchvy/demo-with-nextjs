@@ -57,6 +57,7 @@ const ItemTitle = styled.span`
   margin-bottom: 3px;
 `
 const ItemImage = styled.img`
+  flex-shrink: 0;
   height: 62px;
   margin-right: 15px;
   width: 62px;
