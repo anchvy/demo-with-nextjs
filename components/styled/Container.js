@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 
 const Container = styled.div`
-  padding: 0 ${LAYOUT_SPACING}px;
+  padding-left: ${LAYOUT_SPACING}px;
+  padding-right: ${LAYOUT_SPACING}px;
   width: 100%;
 
   ${ON_DESKTOP`

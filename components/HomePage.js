@@ -20,6 +20,7 @@ const StyledContainer = styled(Container)`
 
   ${ON_DESKTOP`
     border-radius: 0;
+    padding-bottom: 50px;
     top: 0;
   `}
 `
