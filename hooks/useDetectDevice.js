@@ -1,30 +1,36 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { MOBILE_MAX_WIDTH } from '../utils/style'
 
 const isMobile = innerWidth => innerWidth <= MOBILE_MAX_WIDTH
 const isDesktop = innerWidth => innerWidth > MOBILE_MAX_WIDTH
 
 const useDetectDevice = () => {
-  if (!process.browser) return { isMobile: true, isDesktop: false }
-
+  const isClientRendered = useRef(false)
   const [state, setState] = useState({
-    isMobile: isMobile(window.innerWidth),
-    isDesktop: isDesktop(window.innerWidth),
+    isMobile: process.browser ? isMobile(window.innerWidth) : true,
+    isDesktop: process.browser ? isDesktop(window.innerWidth) : false,
+  })
+
+  const onResize = useCallback(() => {
+    if (!state.isMobile && isMobile(window.innerWidth)) {
+      setState({ isMobile: true, isDesktop: false })
+    } else if (!state.isDesktop && isDesktop(window.innerWidth)) {
+      setState({ isMobile: false, isDesktop: true })
+    }
+  }, [state])
+
+  useEffect(() => {
+    // trigger with new state when client rendered
+    if (!isClientRendered.current) {
+      isClientRendered.current = true
+      onResize()
+    }
   })
 
   useEffect(() => {
-    const onResize = () => {
-      if (!state.isMobile && isMobile(window.innerWidth)) {
-        setState({ isMobile: true, isDesktop: false })
-      } else if (!state.isDesktop && isDesktop(window.innerWidth)) {
-        setState({ isMobile: false, isDesktop: true })
-      }
-    }
-
     window.addEventListener('resize', onResize)
-
     return () => window.removeEventListener('resize', onResize)
-  }, [state])
+  }, [onResize])
 
   return state
 }
