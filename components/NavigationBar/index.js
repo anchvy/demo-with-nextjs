@@ -34,10 +34,10 @@ const Wrapper = styled.header`
 const NavigationBar = () => {
   const { isDesktop } = useDetectDevice()
   const [isCustomStyle, setIsCustomStyle] = useState(false)
-  const [shouldHideBar, setShouldHideBar] = useState(false)
+  // const [shouldHideBar, setShouldHideBar] = useState(false)
 
   useEffect(() => {
-    let prevOffetY = window.pageYOffset
+    // let prevOffetY = window.pageYOffset
 
     const onScroll = () => {
       const offsetY = window.pageYOffset
@@ -45,11 +45,11 @@ const NavigationBar = () => {
       // change style only when offset > 100
       if (!isCustomStyle && offsetY > 100) setIsCustomStyle(true)
       else if (isCustomStyle && offsetY < 100) setIsCustomStyle(false)
+      
       // : navbar appearance
       // if (offsetY > 100 && prevOffetY - offsetY < 0) setShouldHideBar(true)
       // else setShouldHideBar(false)
-
-      prevOffetY = offsetY
+      // prevOffetY = offsetY
     }
 
     window.addEventListener('scroll', onScroll)
@@ -59,7 +59,7 @@ const NavigationBar = () => {
   const Container = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 
   return (
-    <Wrapper isCustomStyle={isCustomStyle} isHidden={shouldHideBar}>
+    <Wrapper isCustomStyle={isCustomStyle}>
       <Container isCustomStyle={isCustomStyle} />
     </Wrapper>
   )
