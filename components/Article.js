@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { setState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { ReactComponent as IconView } from '../static/images/icon-view.svg'
 import { ReactComponent as IconComment } from '../static/images/icon-comment.svg'
 
-import { ON_DESKTOP } from '../utils/style'
+import { ON_DESKTOP, LINE_CLAMP } from '../utils/style'
 import { getImagePath } from '../utils/path'
 import COLORS from '../utils/color'
 
+const WRAPPER_PADDING = 20
 const FloatingWrapper = styled.div`
   background: white;
   border-radius: 15px 15px 0 0;
@@ -16,10 +17,10 @@ const FloatingWrapper = styled.div`
   color: ${COLORS.DARK_BLUE};
   display: flex;
   flex-direction: column;
-  height: 60%;
+  max-height: 100%;
   left: 0;
   opacity: 0;
-  padding: 20px;
+  padding: ${WRAPPER_PADDING}px;
   pointer-events: none;
   position: absolute;
   width: 100%;
@@ -27,16 +28,16 @@ const FloatingWrapper = styled.div`
   z-index: 1;
 `
 const StatBox = styled.div`
-  bottom: 20px;
+  bottom: ${WRAPPER_PADDING}px;
   color: white;
   display: flex;
   pointer-events: none;
   position: absolute;
-  right: 20px;
+  right: ${WRAPPER_PADDING}px;
   z-index: 2;
 
   > svg {
-    fill: ${COLORS.LIGHT_GRAY};
+    fill: ${COLORS.GRAY};
     fill-opacity: 0.4;
     height: 18px;
     width: 18px;
@@ -47,19 +48,17 @@ const StatLabel = styled.div`
   margin-left: 5px;
   margin-right: 10px;
 `
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   background: url("${props => getImagePath(props.imageName)}");
   background-position: center;
   background-size: cover;
   border-radius: 8px;
+  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.5);
   cursor: pointer;
   display: flex;
-  flex-shrink: 0;
   height: 380px;
   position: relative;
   width: 100%;
-
-  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.5);
 
   &:hover {
     > ${FloatingWrapper} {
@@ -77,17 +76,31 @@ const Wrapper = styled.div`
     min-width: 375px;
   `}
 `
-const TitleBox = styled.div`
-  align-items: flex-end;
-  display: flex;
-  flex: 1 0 auto;
-  margin-bottom: 16px;
-`
 const Title = styled.span`
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  font-size: 24px;
+  font-weight: bold;
+
+  ${LINE_CLAMP(2)}
+`
+const CategoryName = styled.span`
+  color: ${COLORS.LIGHT_GREEN};
+  font-size: 14px;
+`
+const ArticleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  > ${Title} {
+    margin-bottom: 6px;
+  }
+
+  > ${CategoryName} {
+    margin-bottom: 13px;
+  }
+`
+const Description = styled.span.attrs({ className: 'font-subtitle' })`
+  ${LINE_CLAMP(2)}
 `
 const InfoBox = styled.div`
   display: flex;
@@ -100,7 +113,7 @@ const AuthorImage = styled.img`
   margin-right: 14px;
   width: 36px;
 `
-const ArticleInfo = styled.div`
+const ArticleInfoBox = styled.div`
   display: flex;
   flex-direction: column;
 `
@@ -110,8 +123,18 @@ const ArticleDate = styled.span`
   font-size: 14px;
   font-weight: 500;
 `
-const AuthorName = styled.span`
+const AuthorName = styled.span.attrs({ className: 'font-subtitle' })`
   font-weight: 600;
+`
+const ArticleHeaderBox = styled.div`
+  bottom: ${WRAPPER_PADDING}px;
+  left: ${WRAPPER_PADDING}px;
+  position: absolute;
+
+  > ${Title} {
+    color: white;
+    margin-bottom: 22px;
+  }
 `
 
 /* -------------------------------------------- *
@@ -124,17 +147,23 @@ const Article = React.memo(props => {
   return (
     <Wrapper imageName={item.imageName}>
       <FloatingWrapper>
-        <TitleBox>
+        <ArticleBox>
           <Title>{item.title}</Title>
-        </TitleBox>
+          <CategoryName>{item.categoryName}</CategoryName>
+          <Description>{item.title}</Description>
+        </ArticleBox>
         <InfoBox>
           <AuthorImage src={getImagePath(item.authorImageUrl)} alt={item.author} />
-          <ArticleInfo>
+          <ArticleInfoBox>
             <AuthorName>{item.author}</AuthorName>
             <ArticleDate>{item.createdAt}</ArticleDate>
-          </ArticleInfo>
+          </ArticleInfoBox>
         </InfoBox>
       </FloatingWrapper>
+      <ArticleHeaderBox>
+        <Title>{item.title}</Title>
+        <CategoryName>{item.categoryName}</CategoryName>
+      </ArticleHeaderBox>
       <StatBox>
         {/* view stat */}
         <IconView />

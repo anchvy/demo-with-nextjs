@@ -7,9 +7,10 @@ import { ON_DESKTOP } from '../utils/style'
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
-  grid-gap: 50px 25px;
+  grid-row-gap: 24px;
 
   ${ON_DESKTOP`
+    grid-gap: 50px 25px;
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
   `}
 `
