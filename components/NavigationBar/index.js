@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import NavigationBarDesktop from './NavigationBarDesktop'
-import NavigationBarMobile from './NavigationBarMobile'
+import dynamic from 'next/dynamic'
+
 import useDetectDevice from '../../hooks/useDetectDevice'
+
+const NavigationBarDesktop = dynamic(import('./NavigationBarDesktop'))
+const NavigationBarMobile = dynamic(import('./NavigationBarMobile'))
 
 const Wrapper = styled.header`
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 16.57%, rgba(0, 0, 0, 0.4) 100%);
@@ -53,7 +56,6 @@ const NavigationBar = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [isCustomStyle])
 
-  if (!process.browser) return null
   const Container = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 
   return (

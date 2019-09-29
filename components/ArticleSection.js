@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import dynamic from 'next/dynamic'
 
 import ArticleList from './ArticleList'
-import SeeMoreButton from './SeeMoreButton'
+
+const SeeMoreButton = dynamic(import('./SeeMoreButton'), { ssr: false })
 
 /* -------------------------------------------- *
  * REACT COMPONENT

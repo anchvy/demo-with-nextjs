@@ -45,8 +45,6 @@ const StyledSeeMoreButton = styled(ButtonLink)`
 
 const SeeMoreButton = React.memo(props => {
   const { isDesktop, ...rest } = useDetectDevice()
-
-  if (!process.browser) return null
   const title = `See more ${props.title}`
 
   return (

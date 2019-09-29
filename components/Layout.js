@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import dynamic from 'next/dynamic'
 
-import NavigationBar from './NavigationBar'
-import Footer from './Footer'
+const NavigationBar = dynamic(import('./NavigationBar'), { ssr: false })
+const Footer = dynamic(import('./Footer'))
 
 /* -------------------------------------------- *
  * REACT COMPONENT

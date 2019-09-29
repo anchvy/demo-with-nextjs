@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import dynamic from 'next/dynamic'
 
 import { ReactComponent as IconClose } from '../../static/images/icon-close.svg'
 import { ReactComponent as IconMenu } from '../../static/images/icon-menu.svg'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
 import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
-import SideMenuMobile from './SideMenuMobile'
 import ButtonLink from '../ButtonLink'
 import { NavItemsContainer } from './style'
 import { LAYOUT_SPACING } from '../../utils/style'
 
+const SideMenuMobile = dynamic(import('./SideMenuMobile'))
 const IconButton = styled(ButtonLink)`
   border: none;
   border-radius: 50%;
