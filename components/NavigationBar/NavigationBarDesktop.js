@@ -47,8 +47,8 @@ const StyledNavContainer = styled(NavItemsContainer)`
     css`
       padding: 5px ${LAYOUT_SPACING}px;
 
-      svg {
-        fill: black;
+      ${SearchInput} {
+        color: black;
       }
     `}
 `
@@ -59,10 +59,12 @@ const StyledNavContainer = styled(NavItemsContainer)`
 
 const NavigationBarDesktop = props => {
   const { isCustomStyle } = props
+  // custom style
+  const svgColor = isCustomStyle ? 'black' : 'white'
 
   return (
     <StyledNavContainer isCustomStyle={isCustomStyle}>
-      <IconLogo height={48} fill="white" />
+      <IconLogo height={48} fill={svgColor} />
       <SearchBox>
         <SearchContainer>
           <SearchInput placeholder="Search...." />
