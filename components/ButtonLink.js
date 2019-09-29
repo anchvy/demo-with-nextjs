@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import COLORS from '../utils/color'
 
-const StyledButton = styled.a`
+const StyledButton = styled.a.attrs({ className: 'font-subtitle' })`
   align-items: center;
   background: ${COLORS.LIGHT_GREEN};
   border: 1px solid ${COLORS.LIGHT_GREEN};

@@ -19,7 +19,7 @@ const SearchBox = styled.div`
   margin: 0 60px;
 `
 const SearchContainer = styled.div`
-  border: 1px solid ${COLORS.LIGHT_GRAY};
+  border: 1px solid ${COLORS.GRAY};
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,7 @@ const SearchContainer = styled.div`
 const SearchInput = styled.input`
   background: transparent;
   border: none;
-  color: ${COLORS.LIGHT_GRAY};
+  color: ${COLORS.GRAY};
   font-size: 16px;
   padding: 10px 20px;
   flex-basis: 100%;

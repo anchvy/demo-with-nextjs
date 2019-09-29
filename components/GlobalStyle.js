@@ -12,7 +12,11 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
     font-size: 16px;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .font-subtitle {
+    font-style: italic;
   }
 `
 

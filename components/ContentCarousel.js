@@ -34,17 +34,24 @@ const Item = styled.article`
   padding: 0 0 12px 12px;
   min-width: 270px;
   margin-right: 19px;
+  overflow: hidden;
 `
-const ItemTitle = styled.div`
-  align-self: flex-end;
+const ItemInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const ItemSubTitle = styled.span.attrs({ className: 'font-subtitle' })`
   color: white;
   font-weight: 800;
-  height: 40px;
   line-height: 20px;
   overflow: hidden;
 `
+const ItemTitle = styled.span`
+  color: ${COLORS.LIGHT_GREEN};
+  font-size: 14px;
+  margin-bottom: 3px;
+`
 const ItemImage = styled.img`
-  flex-shrink: 0;
   height: 62px;
   margin-right: 15px;
   width: 62px;
@@ -57,7 +64,10 @@ const ContentCarousel = props => {
       {items.map(item => (
         <Item key={item.id}>
           <ItemImage src={getImagePath(item.imageName)} alt={item.title} />
-          <ItemTitle>{item.title}</ItemTitle>
+          <ItemInfoBox>
+            <ItemTitle>{item.categoryName}</ItemTitle>
+            <ItemSubTitle>{item.title}</ItemSubTitle>
+          </ItemInfoBox>
         </Item>
       ))}
     </Wrapper>
