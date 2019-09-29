@@ -4,6 +4,13 @@ export const NAVIGATION_BAR_HEIGHT = 96
 export const LAYOUT_SPACING = 16
 export const MOBILE_MAX_WIDTH = 768
 
+export const LINE_CLAMP = numberOfLine => css`
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: ${numberOfLine};
+  -webkit-box-orient: vertical;
+`
+
 export const FLEX_CENTER = css`
   align-items: center;
   display: flex;

@@ -8,6 +8,8 @@
       "react/destructuring-assignment": "off",
       "react/forbid-prop-types": "off",
       "react/jsx-props-no-spreading": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
     },
     "env": {
       "browser": true
