@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   ${FLEX_CENTER}
 `
 
+/* -------------------------------------------- *
+ * REACT COMPONENT
+ * -------------------------------------------- */
+
 const MoreInfoBox = () => {
   const { isDesktop } = useDetectDevice()
   if (isDesktop) return null
