@@ -56,7 +56,9 @@ const SeeMoreButton = React.memo(props => {
           <IconArrow width={16} height={15} fill={COLORS.LIGHT_GREEN} />
         </StyledSeeMoreButton>
       ) : (
-        <StyledButtonLink type="secondary">{displayedTitle}</StyledButtonLink>
+        <StyledButtonLink aria-label={displayedTitle} type="secondary">
+          {displayedTitle}
+        </StyledButtonLink>
       )}
     </Wrapper>
   )

@@ -81,7 +81,7 @@ const ContactBox = () => {
       </Description>
       <SocialMediaBox>
         {SOCIAL_MEDIA_CONFIG.map(item => (
-          <SocialMediaLink key={item.key} href={item.url}>
+          <SocialMediaLink key={item.key} href={item.url} aria-label={item.key}>
             {item.icon}
           </SocialMediaLink>
         ))}

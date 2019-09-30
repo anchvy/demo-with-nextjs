@@ -40,7 +40,7 @@ const SearchBarMobile = React.memo(props => {
     <Wrapper isOpen={isOpen} onClick={onCloseSearchBar} data-viewkey={viewKey}>
       <Container onClick={onContainerClick}>
         <IconSearch width={22} height={22} fill={COLORS.LIGHT_GREEN} />
-        <SearchInput placeholder="What do you want to find?" />
+        <SearchInput type="text" id="search-mb" placeholder="What do you want to find?" />
       </Container>
     </Wrapper>
   )

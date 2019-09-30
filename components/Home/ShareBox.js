@@ -66,8 +66,12 @@ const ShareBox = () => (
       <SubTitle>Let's start sharing your experience</SubTitle>
     </InfoBox>
     <ActionBox>
-      <ButtonLink type="primary">Create a Post</ButtonLink>
-      <ButtonLink type="secondary">Join Community</ButtonLink>
+      <ButtonLink type="primary" aria-label="Create a Post">
+        Create a Post
+      </ButtonLink>
+      <ButtonLink type="secondary" aria-label="Join community">
+        Join Community
+      </ButtonLink>
     </ActionBox>
   </Wrapper>
 )

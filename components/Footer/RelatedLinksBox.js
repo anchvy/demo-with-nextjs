@@ -55,7 +55,7 @@ const RelatedLinksBox = () => {
       <Title>Company</Title>
       <LinkContainer>
         {LINKS_CONFIG.map(item => (
-          <LinkItem key={item.title} href={item.url}>
+          <LinkItem key={item.title} href={item.url} aria-label={item.title}>
             {item.title}
           </LinkItem>
         ))}

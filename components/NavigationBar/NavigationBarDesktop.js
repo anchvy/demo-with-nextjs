@@ -63,15 +63,15 @@ const NavigationBarDesktop = React.memo(props => {
       <IconLogo height={48} fill={svgColor} />
       <SearchBox>
         <SearchContainer>
-          <SearchInput placeholder="Search...." />
+          <SearchInput type="text" id="search-pc" placeholder="Search...." />
           <SearchButton>
             <IconSearch width={14} height={14} fill="white" />
           </SearchButton>
         </SearchContainer>
       </SearchBox>
       <ActionBox>
-        <ButtonLink>Sign in</ButtonLink>
-        <ButtonLink type="secondary">Sign up</ButtonLink>
+        <ButtonLink aria-label="Sign in">Sign in</ButtonLink>
+        <ButtonLink type="secondary" aria-label="Sign up">Sign up</ButtonLink>
       </ActionBox>
     </StyledNavContainer>
   )

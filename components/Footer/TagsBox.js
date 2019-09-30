@@ -56,7 +56,7 @@ const TagsBox = () => (
     <Title>Popular Tag</Title>
     <TagsContainer>
       {TAGS_CONFIG.map(item => (
-        <TagItem key={item} url="#">
+        <TagItem key={item} url="#" aria-label={item}>
           {item}
         </TagItem>
       ))}
