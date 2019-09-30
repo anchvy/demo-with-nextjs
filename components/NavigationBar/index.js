@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 
 const NavigationBar = () => {
   const { isDesktop } = useDetectDevice()
-  const [isCustomStyle, setIsCustomStyle] = useState(false)
+  const [isCustomStyle, setIsCustomStyle] = useState(window.pageYOffset > 100)
   // const [shouldHideBar, setShouldHideBar] = useState(false)
 
   useEffect(() => {
