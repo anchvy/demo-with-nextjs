@@ -20,6 +20,7 @@ const Container = styled.div`
   }
 `
 const SearchInput = styled.input`
+  border: none;
   color: ${COLORS.DARK_GRAY};
   font-style: italic;
   margin-left: 10px;
