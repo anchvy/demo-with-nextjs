@@ -8,7 +8,6 @@ import { ReactComponent as IconComment } from '../../static/images/icon-comment.
 import { ON_DESKTOP, LINE_CLAMP } from '../../utils/style'
 import { getImagePath } from '../../utils/path'
 import COLORS from '../../utils/color'
-import useDetectDevice from '../../hooks/useDetectDevice'
 
 const WRAPPER_PADDING = 20
 const FloatingWrapper = styled.div`
@@ -149,17 +148,14 @@ const ArticleHeaderBox = styled.div`
 
 const Article = React.memo(props => {
   const { item } = props
-  const { isDesktop } = useDetectDevice()
   const [isActive, setIsActive] = useState(false)
   // wrapper: onclick handler
   const onClick = useCallback(() => {
     setIsActive(prevState => !prevState)
   }, [])
-  // event key: depends on current device size
-  const eventKey = isDesktop ? 'onClick' : 'onTouchStart'
 
   return (
-    <Wrapper imageName={item.imageName} {...{ [eventKey]: onClick }}>
+    <Wrapper imageName={item.imageName} onClick={onClick}>
       {/* --- <FloatingWrapper> --- */}
       {isActive && (
         <FloatingWrapper>
