@@ -32,7 +32,11 @@ const ArticleList = React.memo(props => {
 })
 
 ArticleList.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+    })
+  ),
 }
 
 ArticleList.defaultProps = {

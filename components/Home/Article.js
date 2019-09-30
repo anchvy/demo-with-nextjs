@@ -191,7 +191,14 @@ const Article = React.memo(props => {
 })
 
 Article.propTypes = {
-  item: PropTypes.object,
+  item: PropTypes.shape({
+    author: PropTypes.string,
+    authorImageUrl: PropTypes.string,
+    categoryName: PropTypes.string,
+    createdAt: PropTypes.string,
+    imageName: PropTypes.string,
+    title: PropTypes.string,
+  }),
 }
 
 Article.defaultProps = {

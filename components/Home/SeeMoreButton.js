@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { ReactComponent as IconArrow } from '../../static/images/icon-arrow.svg'
 import COLORS from '../../utils/color'
-import useDetectDevice from '../../hooks/useDetectDevice'
 import ButtonLink from '../ButtonLink'
+import { DetectDeviceContext } from '../../contexts/DetectDeviceProvider'
 
 const DEFAULT_STYLE = css`
   display: inline-block;
@@ -44,18 +44,19 @@ const StyledSeeMoreButton = styled(ButtonLink)`
  * -------------------------------------------- */
 
 const SeeMoreButton = React.memo(props => {
-  const { isDesktop, ...rest } = useDetectDevice()
-  const title = `See more ${props.title}`
+  const { isDesktop } = useContext(DetectDeviceContext)
+  const { title, ...rest } = props
+  const displayedTitle = `See more ${title}`
 
   return (
     <Wrapper {...rest}>
       {isDesktop ? (
         <StyledSeeMoreButton>
-          {title}
+          {displayedTitle}
           <IconArrow width={16} height={15} fill={COLORS.LIGHT_GREEN} />
         </StyledSeeMoreButton>
       ) : (
-        <StyledButtonLink type="secondary">{title}</StyledButtonLink>
+        <StyledButtonLink type="secondary">{displayedTitle}</StyledButtonLink>
       )}
     </Wrapper>
   )

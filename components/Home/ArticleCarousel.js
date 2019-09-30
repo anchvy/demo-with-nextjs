@@ -88,6 +88,9 @@ ContentCarousel.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
+      title: PropTypes.string,
+      categoryName: PropTypes.string,
+      imageName: PropTypes.string,
     })
   ),
 }

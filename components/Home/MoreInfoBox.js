@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import { FLEX_CENTER } from '../../utils/style'
-import useDetectDevice from '../../hooks/useDetectDevice'
 import { ReactComponent as IconChevronDown } from '../../static/images/icon-chevron-down.svg'
+import { DetectDeviceContext } from '../../contexts/DetectDeviceProvider'
 
 const Wrapper = styled.div`
   color: white;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
  * -------------------------------------------- */
 
 const MoreInfoBox = () => {
-  const { isDesktop } = useDetectDevice()
+  const { isDesktop } = useContext(DetectDeviceContext)
   if (isDesktop) return null
 
   return (

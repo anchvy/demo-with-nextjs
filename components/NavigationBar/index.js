@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 
-import useDetectDevice from '../../hooks/useDetectDevice'
 import { WITH_CUSTOM_STYLE_BG } from './styled'
+import { DetectDeviceContext } from '../../contexts/DetectDeviceProvider'
 
 const NavigationBarDesktop = dynamic(import('./NavigationBarDesktop'))
 const NavigationBarMobile = dynamic(import('./NavigationBarMobile'))
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
  * -------------------------------------------- */
 
 const NavigationBar = () => {
-  const { isDesktop } = useDetectDevice()
+  const { isDesktop } = useContext(DetectDeviceContext)
   const [isCustomStyle, setIsCustomStyle] = useState(window.pageYOffset > 100)
   // const [shouldHideBar, setShouldHideBar] = useState(false)
 

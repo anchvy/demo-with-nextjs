@@ -2,8 +2,8 @@ import React from 'react'
 import App from 'next/app'
 
 import GlobalStyle from '../components/GlobalStyle'
-
 import Layout from '../components/Layout'
+import DetectDeviceProvider from '../contexts/DetectDeviceProvider'
 
 class MyApp extends App {
   render() {
@@ -12,9 +12,11 @@ class MyApp extends App {
     return (
       <>
         <GlobalStyle />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <DetectDeviceProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </DetectDeviceProvider>
       </>
     )
   }
