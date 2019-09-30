@@ -1,5 +1,6 @@
 import React from 'react'
 import App from 'next/app'
+import Head from 'next/head'
 
 import GlobalStyle from '../components/GlobalStyle'
 import Layout from '../components/Layout'
@@ -11,6 +12,9 @@ class MyApp extends App {
 
     return (
       <>
+        <Head>
+          <title>Woravan</title>
+        </Head>
         <GlobalStyle />
         <DetectDeviceProvider>
           <Layout>
