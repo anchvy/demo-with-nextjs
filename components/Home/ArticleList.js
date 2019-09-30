@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
   ${ON_DESKTOP`
     grid-gap: 50px 25px;
-    grid-template-columns: repeat(auto-fit, 375px);
+    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
   `}
 `
 

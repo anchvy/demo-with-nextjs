@@ -85,8 +85,12 @@ const SideMenuMobile = React.memo(props => {
           <Item>Latest Post</Item>
         </ItemBox>
         <ActionBox>
-          <ButtonLink type="primary" aria-label="Sign In">Sign In</ButtonLink>
-          <ButtonLink type="secondary" aria-label="Sign Up">Sign Up</ButtonLink>
+          <ButtonLink type="primary" aria-label="Sign In">
+            Sign In
+          </ButtonLink>
+          <ButtonLink type="secondary" aria-label="Sign Up">
+            Sign Up
+          </ButtonLink>
         </ActionBox>
         <CompanyLabel>© 2018 Mewala Travel Blog. All rights reserved. </CompanyLabel>
       </Container>

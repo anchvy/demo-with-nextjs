@@ -71,7 +71,9 @@ const NavigationBarDesktop = React.memo(props => {
       </SearchBox>
       <ActionBox>
         <ButtonLink aria-label="Sign in">Sign in</ButtonLink>
-        <ButtonLink type="secondary" aria-label="Sign up">Sign up</ButtonLink>
+        <ButtonLink type="secondary" aria-label="Sign up">
+          Sign up
+        </ButtonLink>
       </ActionBox>
     </StyledNavContainer>
   )
