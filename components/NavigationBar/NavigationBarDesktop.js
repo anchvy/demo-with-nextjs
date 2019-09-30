@@ -33,7 +33,6 @@ const SearchInput = styled.input`
   background: transparent;
   border: none;
   color: ${COLORS.GRAY};
-  font-size: 16px;
   padding: 10px 20px;
   flex-basis: 100%;
 `

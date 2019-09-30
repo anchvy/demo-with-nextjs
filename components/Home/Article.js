@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -152,9 +152,9 @@ const Article = React.memo(props => {
   const { isDesktop } = useDetectDevice()
   const [isActive, setIsActive] = useState(false)
   // wrapper: onclick handler
-  const onClick = () => {
+  const onClick = useCallback(() => {
     setIsActive(prevState => !prevState)
-  }
+  }, [])
   // event key: depends on current device size
   const eventKey = isDesktop ? 'onClick' : 'onTouchStart'
 

@@ -15,13 +15,13 @@ const Wrapper = styled.div`
   // TODO: If the green line is a custom scorebar
   // Please un-comment the below style :)
 
-  // ::-webkit-scrollbar {
-  //   height: 1px;
-  // }
+  ::-webkit-scrollbar {
+    height: 1px;
+  }
 
-  // ::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
   //   background: ${COLORS.LIGHT_GREEN};
-  // }
+  }
 
   ${ON_DESKTOP`
     padding: 0;

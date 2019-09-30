@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     word-break: break-word;
   }
   
-  html, body {
+  html, body, input {
     height: 100%;
     font-size: 16px;
     font-family: 'Lato', sans-serif;

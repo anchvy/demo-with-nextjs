@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
@@ -12,18 +12,13 @@ import ButtonLink from '../ButtonLink'
 import { NavItemsContainer } from './styled'
 import { LAYOUT_SPACING } from '../../utils/style'
 
+const SearchBarMobile = dynamic(import('./SearchBarMobile'))
 const SideMenuMobile = dynamic(import('./SideMenuMobile'))
 const IconButton = styled(ButtonLink)`
   border: none;
   border-radius: 50%;
   min-width: unset;
   padding: 10px;
-
-  ${props =>
-    props.isHidden &&
-    css`
-      visibility: hidden;
-    `}
 `
 const StyledNavContainer = styled(NavItemsContainer)`
   ${props =>
@@ -37,30 +32,49 @@ const StyledNavContainer = styled(NavItemsContainer)`
  * REACT COMPONENT
  * -------------------------------------------- */
 
+const VIEW_KEYS = {
+  SEARCH: 'SEARCH',
+  MENU: 'MENU',
+}
+
 const NavigationBarMobile = React.memo(props => {
   const { isCustomStyle } = props
-  const [isOpenSideBar, setIsOpenSideBar] = useState(false)
+  const [activeViewKey, setActiveViewKey] = useState(null)
 
+  // viewState
+  const isOpenSideBar = activeViewKey === VIEW_KEYS.MENU
+  const isOpenSearchBar = activeViewKey === VIEW_KEYS.SEARCH
+  // freeze body when sidebar is activate
+  const { body } = document
+  body.style.overflow = activeViewKey ? 'hidden' : 'initial'
   const MenuIcon = isOpenSideBar ? IconClose : IconMenu
-  // menu-icon: onclick handler
-  const onClickMenuIcon = () => setIsOpenSideBar(!isOpenSideBar)
+  // menu/search-icon: onclick handler
+  const onToggleViewState = useCallback(event => {
+    const viewKey = event.currentTarget.getAttribute('data-viewkey')
+    // if `prevState === viewKey` is true,
+    // it mean that view has been displayed then, we need to close
+    setActiveViewKey(prevState => (prevState === viewKey ? null : viewKey))
+  }, [])
   // custom style
-  const shouldChangeStyle = isCustomStyle || isOpenSideBar
+  const shouldChangeStyle = isCustomStyle || isOpenSideBar || isOpenSearchBar
   const svgColor = shouldChangeStyle ? 'black' : 'white'
   const svgLogoSize = shouldChangeStyle ? 29 : 48
   const svgIconSize = shouldChangeStyle ? 22 : 28
 
   return (
-    <StyledNavContainer isCustomStyle={isCustomStyle || isOpenSideBar}>
-      <IconButton type="secondary">
-        <MenuIcon width={svgIconSize} height={svgIconSize} fill={svgColor} onClick={onClickMenuIcon} />
-      </IconButton>
-      <IconLogo height={svgLogoSize} fill={svgColor} />
-      <IconButton type="secondary" isHidden={isOpenSideBar}>
-        <IconSearch width={svgIconSize} height={svgIconSize} fill={svgColor} />
-      </IconButton>
-      <SideMenuMobile isOpen={isOpenSideBar} onCloseSideBar={onClickMenuIcon} />
-    </StyledNavContainer>
+    <>
+      <StyledNavContainer isCustomStyle={shouldChangeStyle}>
+        <IconButton type="secondary" onClick={onToggleViewState} data-viewkey={VIEW_KEYS.MENU}>
+          <MenuIcon width={svgIconSize} height={svgIconSize} fill={svgColor} />
+        </IconButton>
+        <IconLogo height={svgLogoSize} fill={svgColor} />
+        <IconButton type="secondary" onClick={onToggleViewState} data-viewkey={VIEW_KEYS.SEARCH}>
+          <IconSearch width={svgIconSize} height={svgIconSize} fill={svgColor} />
+        </IconButton>
+      </StyledNavContainer>
+      <SideMenuMobile viewKey={VIEW_KEYS.MENU} isOpen={isOpenSideBar} onCloseSideBar={onToggleViewState} />
+      <SearchBarMobile viewKey={VIEW_KEYS.SEARCH} isOpen={isOpenSearchBar} onCloseSearchBar={onToggleViewState} />
+    </>
   )
 })
 

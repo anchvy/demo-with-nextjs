@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
@@ -57,10 +57,10 @@ const Home = () => {
   const [activeCategoryName, setActiveCategoryName] = useState(ALL_CATEGORY_ITEM)
   const articles = useData(QUERY_TYPE.CATEGORY_NAME)
   // menu-item: onclick handler
-  const onClickMenuItem = event => {
+  const onClickMenuItem = useCallback(event => {
     const categoryName = event.currentTarget.getAttribute('data-item')
     setActiveCategoryName(categoryName)
-  }
+  }, [])
 
   return (
     <>

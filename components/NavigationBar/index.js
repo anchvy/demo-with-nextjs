@@ -1,31 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
 import dynamic from 'next/dynamic'
 
 import useDetectDevice from '../../hooks/useDetectDevice'
 
 const NavigationBarDesktop = dynamic(import('./NavigationBarDesktop'))
 const NavigationBarMobile = dynamic(import('./NavigationBarMobile'))
-
-const Wrapper = styled.header`
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 16.57%, rgba(0, 0, 0, 0.4) 100%);
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-
-  ${props =>
-    props.isCustomStyle &&
-    css`
-      background: white;
-      box-shadow: 1px 1px 26px -1px rgba(0, 0, 0, 0.7);
-    `}
-
-  ${props =>
-    props.isHidden &&
-    css`
-      display: none;
-    `}
-`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
@@ -45,7 +24,7 @@ const NavigationBar = () => {
       // change style only when offset > 100
       if (!isCustomStyle && offsetY > 100) setIsCustomStyle(true)
       else if (isCustomStyle && offsetY < 100) setIsCustomStyle(false)
-      
+
       // : navbar appearance
       // if (offsetY > 100 && prevOffetY - offsetY < 0) setShouldHideBar(true)
       // else setShouldHideBar(false)
@@ -56,13 +35,9 @@ const NavigationBar = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [isCustomStyle])
 
-  const Container = isDesktop ? NavigationBarDesktop : NavigationBarMobile
+  const Wrapper = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 
-  return (
-    <Wrapper isCustomStyle={isCustomStyle}>
-      <Container isCustomStyle={isCustomStyle} />
-    </Wrapper>
-  )
+  return <Wrapper isCustomStyle={isCustomStyle} />
 }
 
 export default NavigationBar

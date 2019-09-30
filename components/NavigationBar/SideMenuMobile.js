@@ -1,32 +1,18 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
 import useData from '../../hooks/useData'
 import COLORS from '../../utils/color'
 import ButtonLink from '../ButtonLink'
+import { WrapperOverlayMobile as Wrapper } from './styled'
 
-const CONTAINER_WIDTH = '80vw'
-const Wrapper = styled.div`
-  background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  left: -100vw;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-
-  ${props =>
-    props.isOpen &&
-    css`
-      left: 0;
-    `}
-`
 const Container = styled.div`
   background: white;
   height: 100%;
   padding: 0 20px;
   padding-top: 50px;
-  width: ${CONTAINER_WIDTH};
+  width: 80vw;
 `
 const ItemBox = styled.div`
   margin-bottom: 40px;
@@ -82,16 +68,13 @@ const CompanyLabel = styled.div`
  * -------------------------------------------- */
 
 const SideMenuMobile = React.memo(props => {
-  const { isOpen, onCloseSideBar } = props
+  const { isOpen, onCloseSideBar, viewKey } = props
   const data = useData()
-  // freeze body when sidebar is activate
-  const { body } = document
-  body.style.overflow = isOpen ? 'hidden' : 'initial'
-  // stop propagation for container
+  // container: stop propagation for container
   const onContainerClick = event => event.stopPropagation()
 
   return (
-    <Wrapper isOpen={isOpen} onClick={onCloseSideBar}>
+    <Wrapper isOpen={isOpen} onClick={onCloseSideBar} data-viewkey={viewKey}>
       <Container onClick={onContainerClick}>
         <ItemBox>
           <Item>Home</Item>
@@ -114,6 +97,7 @@ const SideMenuMobile = React.memo(props => {
 SideMenuMobile.propTypes = {
   isOpen: PropTypes.bool,
   onCloseSideBar: PropTypes.func,
+  viewKey: PropTypes.string.isRequired,
 }
 
 SideMenuMobile.defaultProps = {
