@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
@@ -6,7 +6,7 @@ import Container from '../styled/Container'
 import ArticleMenu from './ArticleMenu'
 import ShareBox from './ShareBox'
 
-import useData, { QUERY_TYPE } from '../../hooks/useData'
+import { QUERY_TYPE, fetchMockData } from '../../utils/fetch'
 import { ON_DESKTOP } from '../../utils/style'
 import COLORS from '../../utils/color'
 
@@ -55,7 +55,9 @@ const ALL_CATEGORY_ITEM = 'All'
 
 const Home = () => {
   const [activeCategoryName, setActiveCategoryName] = useState(ALL_CATEGORY_ITEM)
-  const articles = useData(QUERY_TYPE.CATEGORY_NAME)
+  const articles = useMemo(() => fetchMockData(QUERY_TYPE.CATEGORY_NAME, activeCategoryName), [activeCategoryName])
+  const latestArticles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST), [])
+  const categoriesName = useMemo(() => fetchMockData(QUERY_TYPE.CATEGORIES), [])
   // menu-item: onclick handler
   const onClickMenuItem = useCallback(event => {
     const categoryName = event.currentTarget.getAttribute('data-item')
@@ -69,12 +71,12 @@ const Home = () => {
         <SectionHeader>Recommended</SectionHeader>
         <StyledArticleMenu
           activeItem={activeCategoryName}
-          items={[ALL_CATEGORY_ITEM, 'Casad', 'Dasdasd', 'asdasd', 'sdasd']}
+          items={[ALL_CATEGORY_ITEM, ...categoriesName]}
           onClickMenuItem={onClickMenuItem}
         />
         <StyledArticleSection items={articles} title="recommended articles" seeMoreUrl="#" />
         <SectionHeader>Latest Post</SectionHeader>
-        <StyledArticleSection items={articles} title="latest posts" seeMoreUrl="#" />
+        <StyledArticleSection items={latestArticles} title="latest posts" seeMoreUrl="#" />
         <ShareBox />
       </StyledContainer>
     </>

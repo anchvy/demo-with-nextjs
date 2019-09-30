@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import useData from '../../hooks/useData'
+import { fetchMockData, QUERY_TYPE } from '../../utils/fetch'
 import COLORS from '../../utils/color'
 import ButtonLink from '../ButtonLink'
 import { WrapperOverlayMobile as Wrapper, CUSTOM_NAVBAR_HEIGHT } from './styled'
@@ -69,7 +69,7 @@ const CompanyLabel = styled.div`
 
 const SideMenuMobile = React.memo(props => {
   const { isOpen, onCloseSideBar, viewKey } = props
-  const data = useData()
+  const categories = fetchMockData(QUERY_TYPE.CATEGORIES)
   // container: stop propagation for container
   const onContainerClick = event => event.stopPropagation()
 
@@ -79,8 +79,8 @@ const SideMenuMobile = React.memo(props => {
         <ItemBox>
           <Item>Home</Item>
           <Item>Recommended Article</Item>
-          {data.map(category => (
-            <SubItem key={category.categoryName}>{category.categoryName}</SubItem>
+          {categories.map(category => (
+            <SubItem key={category}>{category}</SubItem>
           ))}
           <Item>Latest Post</Item>
         </ItemBox>

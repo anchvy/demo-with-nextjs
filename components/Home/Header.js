@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
 import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 import Container from '../styled/Container'
 import { getImagePath } from '../../utils/path'
-import useData from '../../hooks/useData'
+import { fetchMockData, QUERY_TYPE } from '../../utils/fetch'
 
 const ContentCarousel = dynamic(import('./ArticleCarousel'))
 const MoreInfoBox = dynamic(import('./MoreInfoBox'), { ssr: false })
@@ -69,7 +69,7 @@ const CarouselBox = styled.div`
  * -------------------------------------------- */
 
 const Header = () => {
-  const data = useData()
+  const articles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST), [])
 
   return (
     <Wrapper>
@@ -79,7 +79,7 @@ const Header = () => {
           <SubTitle>The past always looks better than it was. It is only pleasant because it is not here.</SubTitle>
         </TitleBox>
         <CarouselBox>
-          <ContentCarousel items={data} />
+          <ContentCarousel items={articles} />
         </CarouselBox>
         <MoreInfoBox />
       </StyledContainer>
