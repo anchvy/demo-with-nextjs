@@ -2,15 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
-import { ON_DESKTOP, LAYOUT_SPACING, FLEX_CENTER } from '../../utils/style'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 import Container from '../styled/Container'
 import { getImagePath } from '../../utils/path'
-import { ReactComponent as IconChevronDown } from '../../static/images/icon-chevron-down.svg'
-
 import useData from '../../hooks/useData'
-import useDetectDevice from '../../hooks/useDetectDevice'
 
 const ContentCarousel = dynamic(import('./ArticleCarousel'))
+const MoreInfoBox = dynamic(import('./MoreInfoBox'), { ssr: false })
 
 const Wrapper = styled.div`
   background: url('${getImagePath('header.jpg')}');
@@ -65,22 +63,12 @@ const CarouselBox = styled.div`
     margin: 33px 0;
   `}
 `
-const MoreInfoBox = styled.div`
-  color: white;
-  font-size: 10px;
-  flex-direction: column;
-  margin-bottom: 15px;
-  opacity: 0.5;
-
-  ${FLEX_CENTER}
-`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
  * -------------------------------------------- */
 
 const Header = () => {
-  const { isMobile } = useDetectDevice()
   const data = useData()
 
   return (
@@ -93,12 +81,7 @@ const Header = () => {
         <CarouselBox>
           <ContentCarousel items={data} />
         </CarouselBox>
-        {isMobile && (
-          <MoreInfoBox>
-            <span>Scroll Down for more</span>
-            <IconChevronDown width={28} height={28} fill="white" opacity="0.5" />
-          </MoreInfoBox>
-        )}
+        <MoreInfoBox />
       </StyledContainer>
     </Wrapper>
   )
