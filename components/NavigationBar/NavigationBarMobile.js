@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import dynamic from 'next/dynamic'
 
@@ -10,7 +10,6 @@ import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import ButtonLink from '../ButtonLink'
 import { NavItemsContainer } from './styled'
-import { LAYOUT_SPACING } from '../../utils/style'
 
 const SearchBarMobile = dynamic(import('./SearchBarMobile'))
 const SideMenuMobile = dynamic(import('./SideMenuMobile'))

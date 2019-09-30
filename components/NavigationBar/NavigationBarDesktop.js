@@ -8,7 +8,6 @@ import { ReactComponent as IconSearch } from '../../static/images/icon-search.sv
 import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import COLORS from '../../utils/color'
-import { LAYOUT_SPACING } from '../../utils/style'
 
 const ActionBox = styled.div`
   flex-shrink: 0;
