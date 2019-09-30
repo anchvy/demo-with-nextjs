@@ -44,8 +44,6 @@ const StyledNavContainer = styled(NavItemsContainer)`
   ${props =>
     props.isCustomStyle &&
     css`
-      padding: 5px ${LAYOUT_SPACING}px;
-
       ${SearchInput} {
         color: black;
       }

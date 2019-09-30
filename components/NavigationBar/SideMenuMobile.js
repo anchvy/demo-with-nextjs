@@ -5,13 +5,13 @@ import PropTypes from 'prop-types'
 import useData from '../../hooks/useData'
 import COLORS from '../../utils/color'
 import ButtonLink from '../ButtonLink'
-import { WrapperOverlayMobile as Wrapper } from './styled'
+import { WrapperOverlayMobile as Wrapper, CUSTOM_NAVBAR_HEIGHT } from './styled'
 
 const Container = styled.div`
   background: white;
   height: 100%;
   padding: 0 20px;
-  padding-top: 50px;
+  padding-top: ${CUSTOM_NAVBAR_HEIGHT}px;
   width: 80vw;
 `
 const ItemBox = styled.div`

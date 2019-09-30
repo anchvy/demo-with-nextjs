@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { WrapperOverlayMobile as Wrapper } from './styled'
+import { WrapperOverlayMobile as Wrapper, CUSTOM_NAVBAR_HEIGHT } from './styled'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
 import COLORS from '../../utils/color'
 import { LAYOUT_SPACING } from '../../utils/style'
@@ -11,10 +11,9 @@ const Container = styled.div`
   align-items: center;
   background: white;
   display: flex;
-  height: 70px;
   padding: 20px ${LAYOUT_SPACING}px;
   position: relative;
-  top: 50px;
+  top: ${CUSTOM_NAVBAR_HEIGHT}px;
 
   > svg {
     margin-left: 10px;

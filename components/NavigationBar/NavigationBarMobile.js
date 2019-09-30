@@ -20,13 +20,7 @@ const IconButton = styled(ButtonLink)`
   min-width: unset;
   padding: 10px;
 `
-const StyledNavContainer = styled(NavItemsContainer)`
-  ${props =>
-    props.isCustomStyle &&
-    css`
-      padding: 5px ${LAYOUT_SPACING}px;
-    `}
-`
+const StyledNavContainer = styled(NavItemsContainer)``
 
 /* -------------------------------------------- *
  * REACT COMPONENT

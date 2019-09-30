@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import styled from 'styled-components'
 
 import useDetectDevice from '../../hooks/useDetectDevice'
+import { WITH_CUSTOM_STYLE_BG } from './styled'
 
 const NavigationBarDesktop = dynamic(import('./NavigationBarDesktop'))
 const NavigationBarMobile = dynamic(import('./NavigationBarMobile'))
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  // always padding 0
+  padding: 0 !important;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+
+  ${WITH_CUSTOM_STYLE_BG}
+`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
@@ -35,9 +49,13 @@ const NavigationBar = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [isCustomStyle])
 
-  const Wrapper = isDesktop ? NavigationBarDesktop : NavigationBarMobile
+  const Container = isDesktop ? NavigationBarDesktop : NavigationBarMobile
 
-  return <Wrapper isCustomStyle={isCustomStyle} />
+  return (
+    <Wrapper isCustomStyle={isCustomStyle}>
+      <Container isCustomStyle={isCustomStyle} />
+    </Wrapper>
+  )
 }
 
 export default NavigationBar
