@@ -2,15 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
-import { ON_DESKTOP, LAYOUT_SPACING, FLEX_CENTER } from '../utils/style'
-import Container from './styled/Container'
-import { getImagePath } from '../utils/path'
-import { ReactComponent as IconChevronDown } from '../static/images/icon-chevron-down.svg'
+import { ON_DESKTOP, LAYOUT_SPACING, FLEX_CENTER } from '../../utils/style'
+import Container from '../styled/Container'
+import { getImagePath } from '../../utils/path'
+import { ReactComponent as IconChevronDown } from '../../static/images/icon-chevron-down.svg'
 
-import useData from '../hooks/useData'
-import useDetectDevice from '../hooks/useDetectDevice'
+import useData from '../../hooks/useData'
+import useDetectDevice from '../../hooks/useDetectDevice'
 
-const ContentCarousel = dynamic(import('./ContentCarousel'))
+const ContentCarousel = dynamic(import('./ArticleCarousel'))
 
 const Wrapper = styled.div`
   background: url('${getImagePath('header.jpg')}');

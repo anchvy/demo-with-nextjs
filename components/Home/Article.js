@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { ReactComponent as IconView } from '../static/images/icon-view.svg'
-import { ReactComponent as IconComment } from '../static/images/icon-comment.svg'
+import { ReactComponent as IconView } from '../../static/images/icon-view.svg'
+import { ReactComponent as IconComment } from '../../static/images/icon-comment.svg'
 
-import { ON_DESKTOP, LINE_CLAMP } from '../utils/style'
-import { getImagePath } from '../utils/path'
-import COLORS from '../utils/color'
-import useDetectDevice from '../hooks/useDetectDevice'
+import { ON_DESKTOP, LINE_CLAMP } from '../../utils/style'
+import { getImagePath } from '../../utils/path'
+import COLORS from '../../utils/color'
+import useDetectDevice from '../../hooks/useDetectDevice'
 
 const WRAPPER_PADDING = 20
 const FloatingWrapper = styled.div`

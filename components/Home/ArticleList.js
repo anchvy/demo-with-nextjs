@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Article from './Article'
-import { ON_DESKTOP } from '../utils/style'
+import { ON_DESKTOP } from '../../utils/style'
 
 const Wrapper = styled.div`
   display: grid;

@@ -3,6 +3,7 @@
     "next/babel"
   ],
   "plugins": [
+    "syntax-dynamic-import",
     "inline-react-svg",
     [
       "styled-components",

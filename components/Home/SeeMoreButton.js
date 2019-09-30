@@ -2,10 +2,10 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { ReactComponent as IconArrow } from '../static/images/icon-arrow.svg'
-import COLORS from '../utils/color'
-import useDetectDevice from '../hooks/useDetectDevice'
-import ButtonLink from './ButtonLink'
+import { ReactComponent as IconArrow } from '../../static/images/icon-arrow.svg'
+import COLORS from '../../utils/color'
+import useDetectDevice from '../../hooks/useDetectDevice'
+import ButtonLink from '../ButtonLink'
 
 const DEFAULT_STYLE = css`
   display: inline-block;

@@ -9,7 +9,7 @@ import { ReactComponent as IconSearch } from '../../static/images/icon-search.sv
 import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import ButtonLink from '../ButtonLink'
-import { NavItemsContainer } from './style'
+import { NavItemsContainer } from './styled'
 import { LAYOUT_SPACING } from '../../utils/style'
 
 const SideMenuMobile = dynamic(import('./SideMenuMobile'))

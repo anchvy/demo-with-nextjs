@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
-import { getImagePath } from '../utils/path'
-import COLORS from '../utils/color'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
+import { getImagePath } from '../../utils/path'
+import COLORS from '../../utils/color'
 
 const Wrapper = styled.div`
   display: flex;

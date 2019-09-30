@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ON_DESKTOP, LAYOUT_SPACING } from '../utils/style'
-import ButtonLink from './ButtonLink'
-import COLORS from '../utils/color'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
+import ButtonLink from '../ButtonLink'
+import COLORS from '../../utils/color'
 
 const Wrapper = styled.div`
   align-items: center;

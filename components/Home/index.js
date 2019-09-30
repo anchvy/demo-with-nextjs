@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import dynamic from 'next/dynamic'
 
-import Container from './styled/Container'
+import Container from '../styled/Container'
 import ArticleMenu from './ArticleMenu'
 import ShareBox from './ShareBox'
 
-import useData, { QUERY_TYPE } from '../hooks/useData'
-import { ON_DESKTOP } from '../utils/style'
-import COLORS from '../utils/color'
+import useData, { QUERY_TYPE } from '../../hooks/useData'
+import { ON_DESKTOP } from '../../utils/style'
+import COLORS from '../../utils/color'
 
 const Header = dynamic(import('./Header'))
 const ArticleSection = dynamic(import('./ArticleSection'))
@@ -53,7 +53,7 @@ const StyledArticleMenu = styled(ArticleMenu)`
 
 const ALL_CATEGORY_ITEM = 'All'
 
-const HomeComponent = () => {
+const Home = () => {
   const [activeCategoryName, setActiveCategoryName] = useState(ALL_CATEGORY_ITEM)
   const articles = useData(QUERY_TYPE.CATEGORY_NAME)
   // menu-item: onclick handler
@@ -81,4 +81,4 @@ const HomeComponent = () => {
   )
 }
 
-export default HomeComponent
+export default Home

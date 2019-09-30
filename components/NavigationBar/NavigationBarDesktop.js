@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import ButtonLink from '../ButtonLink'
-import { NavItemsContainer } from './style'
+import { NavItemsContainer } from './styled'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
 import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
