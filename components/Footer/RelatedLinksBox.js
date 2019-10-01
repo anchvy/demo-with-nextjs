@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ const Title = styled.span`
   font-size: 18px;
   margin-bottom: 11px;
 `
-const LinkContainer = styled.div`
+const LinkContainer = styled.nav`
   display: flex;
   flex-direction: column;
 `

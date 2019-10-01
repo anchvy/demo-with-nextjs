@@ -7,7 +7,7 @@ import COLORS from '../../utils/color'
 import ButtonLink from '../ButtonLink'
 import { WrapperOverlayMobile as Wrapper, CUSTOM_NAVBAR_HEIGHT } from './styled'
 
-const Container = styled.div`
+const Container = styled.nav`
   background: white;
   height: 100%;
   padding: 0 20px;
@@ -78,11 +78,11 @@ const SideMenuMobile = React.memo(props => {
       <Container onClick={onContainerClick}>
         <ItemBox>
           <Item>Home</Item>
-          <Item>Recommended Article</Item>
+          <Item as="ul"> Recommended Article</Item>
           {categories.map(category => (
             <SubItem key={category}>{category}</SubItem>
           ))}
-          <Item>Latest Post</Item>
+          <Item as="li">Latest Post</Item>
         </ItemBox>
         <ActionBox>
           <ButtonLink type="primary" aria-label="Sign In">

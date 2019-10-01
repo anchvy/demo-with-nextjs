@@ -17,7 +17,7 @@ const Description = styled.span`
   margin: 30px 0;
   opacity: 0.5;
 `
-const SocialMediaBox = styled.div`
+const SocialMediaBox = styled.nav`
   display: flex;
 `
 const SocialMediaLink = styled.a`

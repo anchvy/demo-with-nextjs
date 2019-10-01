@@ -19,7 +19,7 @@ const Title = styled.span`
     margin-bottom: 25px;
   `}
 `
-const TagsContainer = styled.div`
+const TagsContainer = styled.nav`
   display: flex;
   flex-wrap: wrap;
 `
