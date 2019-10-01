@@ -33,7 +33,7 @@ const StyledContainer = styled(Container)`
     top: 0;
   `}
 `
-const SectionHeader = styled.div`
+const SectionHeader = styled.h2`
   color: ${COLORS.DARK_BLUE};
   font-size: 24px;
   font-weight: bold;
@@ -68,16 +68,20 @@ const Home = () => {
     <>
       <Header />
       <StyledContainer>
-        <SectionHeader>Recommended</SectionHeader>
-        <StyledArticleMenu
-          activeItem={activeCategoryName}
-          items={[ALL_CATEGORY_ITEM, ...categoriesName]}
-          onClickMenuItem={onClickMenuItem}
-        />
-        <StyledArticleSection items={articles} title="recommended articles" seeMoreUrl="#" />
-        <SectionHeader>Latest Post</SectionHeader>
-        <StyledArticleSection items={latestArticles} title="latest posts" seeMoreUrl="#" />
-        <ShareBox />
+        <section>
+          <SectionHeader>Recommended</SectionHeader>
+          <StyledArticleMenu
+            activeItem={activeCategoryName}
+            items={[ALL_CATEGORY_ITEM, ...categoriesName]}
+            onClickMenuItem={onClickMenuItem}
+          />
+          <StyledArticleSection items={articles} title="recommended articles" seeMoreUrl="#" />
+        </section>
+        <section>
+          <SectionHeader>Latest Post</SectionHeader>
+          <StyledArticleSection items={latestArticles} title="latest posts" seeMoreUrl="#" />
+          <ShareBox />
+        </section>
       </StyledContainer>
     </>
   )

@@ -63,7 +63,7 @@ const NavigationBarDesktop = React.memo(props => {
       <IconLogo height={48} fill={svgColor} />
       <SearchBox>
         <SearchContainer>
-          <SearchInput type="text" id="search-pc" placeholder="Search...." />
+          <SearchInput aria-label="search-input" type="text" id="search-pc" placeholder="Search...." />
           <SearchButton>
             <IconSearch width={14} height={14} fill="white" />
           </SearchButton>

@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
       text-decoration: underline;
     }
   }
+
+  input:focus {
+    outline: 0;
+  }
 `
 
 export default GlobalStyle

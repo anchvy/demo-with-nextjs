@@ -15,10 +15,10 @@ const ArticleSection = React.memo(props => {
   if (items.length === 0) return null
 
   return (
-    <section {...rest}>
+    <div {...rest}>
       <ArticleList items={items} />
       {seeMoreUrl && <SeeMoreButton title={title} />}
-    </section>
+    </div>
   )
 })
 

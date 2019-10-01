@@ -67,12 +67,16 @@ const Wrapper = styled.article`
   position: relative;
   width: 100%;
 
+  &:hover {
+    ${props => !props.isDisabledHover && `box-shadow: inset 200px 50px 300px 200px rgba(0,0,0,0.5);`}
+  }
+
   ${ON_DESKTOP`
     height: 415px;
     min-width: 375px;
   `}
 `
-const Title = styled.span`
+const Title = styled.h3`
   font-size: 24px;
   font-weight: bold;
 
@@ -155,7 +159,7 @@ const Article = React.memo(props => {
   }, [])
 
   return (
-    <Wrapper imageName={item.imageName} onClick={onClick}>
+    <Wrapper imageName={item.imageName} onClick={onClick} isDisabledHover={isActive}>
       {/* --- <FloatingWrapper> --- */}
       {isActive && (
         <FloatingWrapper>

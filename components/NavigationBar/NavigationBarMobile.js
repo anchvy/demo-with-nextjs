@@ -57,11 +57,23 @@ const NavigationBarMobile = React.memo(props => {
   return (
     <>
       <StyledNavContainer isCustomStyle={shouldChangeStyle}>
-        <IconButton aria-label="Menu" type="secondary" onClick={onToggleViewState} data-viewkey={VIEW_KEYS.MENU}>
+        <IconButton
+          as="div"
+          aria-label="Menu"
+          type="secondary"
+          onClick={onToggleViewState}
+          data-viewkey={VIEW_KEYS.MENU}
+        >
           <MenuIcon width={svgIconSize} height={svgIconSize} fill={svgColor} />
         </IconButton>
         <IconLogo height={svgLogoSize} fill={svgColor} />
-        <IconButton aria-label="Search" type="secondary" onClick={onToggleViewState} data-viewkey={VIEW_KEYS.SEARCH}>
+        <IconButton
+          as="div"
+          aria-label="Search"
+          type="secondary"
+          onClick={onToggleViewState}
+          data-viewkey={VIEW_KEYS.SEARCH}
+        >
           <IconSearch width={svgIconSize} height={svgIconSize} fill={svgColor} />
         </IconButton>
       </StyledNavContainer>
