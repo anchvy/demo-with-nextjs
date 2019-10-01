@@ -73,7 +73,7 @@ const ContentCarousel = React.memo(props => {
     <Wrapper {...rest}>
       {items.map(item => (
         <Item key={item.id}>
-          <ItemImage src={getImagePath(item.imageName, true)} alt={`image of ${item.title}`} />
+          <ItemImage src={getImagePath(item.imageName)} alt={`image of ${item.title}`} />
           <ItemInfoBox>
             <ItemCategoryName>{item.categoryName}</ItemCategoryName>
             <ItemTitle>{item.title}</ItemTitle>
