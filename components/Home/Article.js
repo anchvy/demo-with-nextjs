@@ -166,7 +166,7 @@ const Article = React.memo(props => {
           <ArticleBox>
             <Title>{item.title}</Title>
             <CategoryName>{item.categoryName}</CategoryName>
-            <Description>{item.title}</Description>
+            <Description>{item.description}</Description>
           </ArticleBox>
           <InfoBox>
             <AuthorImage src={getImagePath(item.authorImageUrl)} alt={`image of ${item.author}`} />
@@ -200,6 +200,7 @@ Article.propTypes = {
     authorImageUrl: PropTypes.string,
     categoryName: PropTypes.string,
     createdAt: PropTypes.string,
+    description: PropTypes.string,
     imageName: PropTypes.string,
     title: PropTypes.string,
   }),
