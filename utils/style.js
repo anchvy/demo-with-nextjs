@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { getImagePath } from './path'
 
 export const NAVIGATION_BAR_HEIGHT = 96
 export const LAYOUT_SPACING = 16
@@ -27,3 +28,10 @@ export const ON_DESKTOP = (...args) => {
     }
   `
 }
+
+/**
+ * Generate image srcset value
+ * @param {string} filename
+ * @returns {string}
+ */
+export const getImageSrcset = filename => `${getImagePath(filename, true)} 100w, ${getImagePath(filename)} 100vw`

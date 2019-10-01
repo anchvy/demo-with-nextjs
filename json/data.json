@@ -34,25 +34,25 @@
   },
   {
     "id": 4,
-    "categoryName": "Knowledge",
-    "title": "The man of knowledge",
-    "description": "The man of knowledge must be able not only to love his enemies but also to hate his friends.",
-    "author": "Friedrich Nietzsche",
-    "createdAt": "4 Sep 2019",
-    "view": "999",
-    "comment": "99",
-    "imageName": "article-knowledge.jpg"
-  },
-  {
-    "id": 5,
     "categoryName": "Science",
     "title": "The good thing about science",
     "description": "The good thing about science is that it's true whether or not you believe in it.",
     "author": "Neil deGrasse Tyson",
-    "createdAt": "5 Sep 2019",
+    "createdAt": "4 Sep 2019",
     "view": "999",
     "comment": "99",
     "imageName": "article-science.jpg"
+  },
+  {
+    "id": 5,
+    "categoryName": "Knowledge",
+    "title": "The man of knowledge",
+    "description": "The man of knowledge must be able not only to love his enemies but also to hate his friends.",
+    "author": "Friedrich Nietzsche",
+    "createdAt": "5 Sep 2019",
+    "view": "999",
+    "comment": "99",
+    "imageName": "article-knowledge.jpg"
   },
   {
     "id": 6,
