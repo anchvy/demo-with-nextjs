@@ -5,13 +5,13 @@ import dynamic from 'next/dynamic'
 import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 import Container from '../styled/Container'
 import { getImagePath } from '../../utils/path'
-import { fetchMockData, QUERY_TYPE } from '../../utils/fetch'
+import { fetchMockData, QUERY_TYPE, fetchConfig } from '../../utils/fetch'
 
 const ContentCarousel = dynamic(import('./ArticleCarousel'))
 const MoreInfoBox = dynamic(import('./MoreInfoBox'), { ssr: false })
 
 const Wrapper = styled.div`
-  background: url('${getImagePath('header.jpg')}');
+  background: url('${getImagePath(fetchConfig('headerImageName'))}');
   background-position: center;
   background-size: cover;
   color: white;

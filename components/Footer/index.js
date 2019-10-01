@@ -7,6 +7,7 @@ import COLORS from '../../utils/color'
 import ContactBox from './ContactBox'
 import TagsBox from './TagsBox'
 import RelatedLinksBox from './RelatedLinksBox'
+import { fetchConfig } from '../../utils/fetch'
 
 const Wrapper = styled.footer`
   background: ${COLORS.DARK_BLUE};
@@ -34,7 +35,7 @@ const ContentBox = styled.div`
     padding-bottom: 40px;
   `}
 `
-const CompanyLabel = styled.div`
+const CopyRightLabel = styled.div`
   color: white;
   font-size: 12px;
   opacity: 0.4;
@@ -52,7 +53,7 @@ const Footer = () => (
         <TagsBox />
         <RelatedLinksBox />
       </ContentBox>
-      <CompanyLabel>© 2018 Mewala Travel Blog. All rights reserved. </CompanyLabel>
+      <CopyRightLabel>{fetchConfig('copyRightTitle')}</CopyRightLabel>
     </StyledContainer>
   </Wrapper>
 )

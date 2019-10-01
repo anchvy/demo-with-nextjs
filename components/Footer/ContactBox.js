@@ -7,6 +7,7 @@ import { ReactComponent as IconInstagram } from '../../static/images/icon-instag
 import { ReactComponent as IconTwitter } from '../../static/images/icon-twitter.svg'
 import { ReactComponent as IconGooglePlus } from '../../static/images/icon-google-plus.svg'
 import COLORS from '../../utils/color'
+import { fetchConfig } from '../../utils/fetch'
 
 const Wrapper = styled.section`
   display: flex;
@@ -74,11 +75,7 @@ const ContactBox = () => {
   return (
     <Wrapper>
       <IconLogo height={48} fill="white" />
-      <Description>
-        test Atest Atest Atest Atest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest Atest Atest AAtest
-        AAtest Atest Atest Atest Atest Atest Atest Atest AAtest Atest Atest AAtest AAtest Atest Atest AAtest AAtest
-        Atest Atest
-      </Description>
+      <Description>{fetchConfig('description')}</Description>
       <SocialMediaBox>
         {SOCIAL_MEDIA_CONFIG.map(item => (
           <SocialMediaLink key={item.key} href={item.url} aria-label={item.key}>

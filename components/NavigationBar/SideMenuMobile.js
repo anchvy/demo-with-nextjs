@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { fetchMockData, QUERY_TYPE } from '../../utils/fetch'
+import { fetchMockData, QUERY_TYPE, fetchConfig } from '../../utils/fetch'
 import COLORS from '../../utils/color'
 import ButtonLink from '../ButtonLink'
 import { WrapperOverlayMobile as Wrapper, CUSTOM_NAVBAR_HEIGHT } from './styled'
@@ -56,7 +56,7 @@ const ActionBox = styled.div`
   margin-bottom: 20px;
   width: 100%;
 `
-const CompanyLabel = styled.div`
+const CopyRightLabel = styled.div`
   color: black;
   font-size: 10px;
   opacity: 0.2;
@@ -92,7 +92,7 @@ const SideMenuMobile = React.memo(props => {
             Sign Up
           </ButtonLink>
         </ActionBox>
-        <CompanyLabel>© 2018 Mewala Travel Blog. All rights reserved. </CompanyLabel>
+        <CopyRightLabel>{fetchConfig('copyRightTitle')}</CopyRightLabel>
       </Container>
     </Wrapper>
   )

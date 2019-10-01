@@ -1,4 +1,5 @@
 import MOCK_DATA from '../json/data.json'
+import APP_CONFIG from '../json/config.json'
 
 export const QUERY_TYPE = {
   ALL: 'ALL',
@@ -7,6 +8,12 @@ export const QUERY_TYPE = {
   CATEGORIES: 'CATEGORIES',
 }
 
+/**
+ * Fetch mock data with given type and categoryname
+ * @param {string} type - QUERY_TYPE
+ * @param {string} categoryName
+ * @returns {object[]}
+ */
 export const fetchMockData = (type, categoryName = 'All') => {
   switch (type) {
     case QUERY_TYPE.ALL:
@@ -21,4 +28,12 @@ export const fetchMockData = (type, categoryName = 'All') => {
     default:
       return []
   }
+}
+/**
+ * Fetch data from /json/config.json
+ * @param {string} key
+ * @returns {string}
+ */
+export const fetchConfig = key => {
+  return APP_CONFIG[key] || ''
 }
