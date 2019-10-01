@@ -19,12 +19,14 @@ export const fetchMockData = (type, categoryName = 'All') => {
     case QUERY_TYPE.ALL:
       return MOCK_DATA
     case QUERY_TYPE.LATEST:
-      return MOCK_DATA.slice(0, 4)
+      return MOCK_DATA.slice(0, 3)
     case QUERY_TYPE.CATEGORY_NAME:
       if (categoryName === 'All') return MOCK_DATA
       return MOCK_DATA.filter(item => item.categoryName === categoryName)
     case QUERY_TYPE.CATEGORIES:
-      return MOCK_DATA.reduce((result, item) => [...result, item.categoryName], [])
+      return Object.keys(
+        MOCK_DATA.reduce((result, item) => ({ ...result, [item.categoryName]: item.categoryName }), {})
+      )
     default:
       return []
   }

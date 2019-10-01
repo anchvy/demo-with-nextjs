@@ -60,7 +60,7 @@ const Wrapper = styled.article`
   background-position: center;
   background-size: cover;
   border-radius: 8px;
-  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.5);
+  box-shadow: inset 0 -200px 50px -50px rgba(0,0,0,0.6);
   cursor: pointer;
   display: flex;
   height: 380px;
@@ -153,6 +153,7 @@ const ArticleHeaderBox = styled.div`
 const Article = React.memo(props => {
   const { item } = props
   const [isActive, setIsActive] = useState(false)
+  const authorImagePath = item.authorImageUrl || 'member-placeholder.jpg'
   // wrapper: onclick handler
   const onClick = useCallback(() => {
     setIsActive(prevState => !prevState)
@@ -169,7 +170,7 @@ const Article = React.memo(props => {
             <Description>{item.description}</Description>
           </ArticleBox>
           <InfoBox>
-            <AuthorImage src={getImagePath(item.authorImageUrl)} alt={`image of ${item.author}`} />
+            <AuthorImage src={getImagePath(authorImagePath)} alt={`image of ${item.author}`} />
             <ArticleInfoBox>
               <AuthorName>{item.author}</AuthorName>
               <ArticleDate>{item.createdAt}</ArticleDate>
@@ -185,10 +186,10 @@ const Article = React.memo(props => {
       <StatBox isActive={isActive}>
         {/* view stat */}
         <IconView />
-        <StatLabel>123</StatLabel>
+        <StatLabel>{item.view}</StatLabel>
         {/* comment stat */}
         <IconComment />
-        <StatLabel>123</StatLabel>
+        <StatLabel>{item.comment}</StatLabel>
       </StatBox>
     </Wrapper>
   )
@@ -200,9 +201,11 @@ Article.propTypes = {
     authorImageUrl: PropTypes.string,
     categoryName: PropTypes.string,
     createdAt: PropTypes.string,
+    comment: PropTypes.string,
     description: PropTypes.string,
     imageName: PropTypes.string,
     title: PropTypes.string,
+    view: PropTypes.string,
   }),
 }
 
