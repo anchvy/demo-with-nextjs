@@ -55,7 +55,7 @@ const SubTitle = styled.span`
     font-size: 21px;
   `}
 `
-const CarouselBox = styled.div`
+const CarouselBox = styled.aside`
   height: 74px;
   margin: 12px -${LAYOUT_SPACING}px;
 

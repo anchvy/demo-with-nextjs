@@ -46,6 +46,9 @@ const SectionHeader = styled.h2`
 const StyledArticleMenu = styled(ArticleMenu)`
   margin-top: 15px;
 `
+const StyledShareBox = styled(ShareBox)`
+  margin-bottom: -15px;
+`
 
 /* -------------------------------------------- *
  * REACT COMPONENT
@@ -80,8 +83,8 @@ const Home = () => {
         <section>
           <SectionHeader>Latest Post</SectionHeader>
           <StyledArticleSection items={latestArticles} title="latest posts" seeMoreUrl="#" />
-          <ShareBox />
         </section>
+        <StyledShareBox />
       </StyledContainer>
     </>
   )

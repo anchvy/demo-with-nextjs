@@ -59,8 +59,8 @@ const ActionBox = styled.div`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ShareBox = () => (
-  <Wrapper>
+const ShareBox = props => (
+  <Wrapper {...props}>
     <InfoBox>
       <Title>Are you Ready?</Title>
       <SubTitle>Let's start sharing your experience</SubTitle>
