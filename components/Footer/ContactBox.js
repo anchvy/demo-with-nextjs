@@ -8,7 +8,7 @@ import { ReactComponent as IconTwitter } from '../../static/images/icon-twitter.
 import { ReactComponent as IconGooglePlus } from '../../static/images/icon-google-plus.svg'
 import COLORS from '../../utils/color'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
 `

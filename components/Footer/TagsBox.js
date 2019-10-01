@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import COLORS from '../../utils/color'
 import { ON_DESKTOP } from '../../utils/style'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   color: white;
   flex-direction: column;
   justify-content: center;
 `
-const Title = styled.span`
+const Title = styled.h4`
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 21px;

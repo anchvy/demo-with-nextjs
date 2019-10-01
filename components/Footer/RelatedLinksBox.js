@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `
-const Title = styled.span`
+const Title = styled.h4`
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 11px;
