@@ -59,7 +59,7 @@ const ActionBox = styled.div`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const ShareBox = props => (
+const ShareBox = React.memo(props => (
   <Wrapper {...props}>
     <InfoBox>
       <Title>Are you Ready?</Title>
@@ -74,6 +74,6 @@ const ShareBox = props => (
       </ButtonLink>
     </ActionBox>
   </Wrapper>
-)
+))
 
 export default ShareBox
