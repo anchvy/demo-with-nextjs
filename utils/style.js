@@ -28,10 +28,3 @@ export const ON_DESKTOP = (...args) => {
     }
   `
 }
-
-/**
- * Generate image srcset value
- * @param {string} filename
- * @returns {string}
- */
-export const getImageSrcset = filename => `${getImagePath(filename, true)} 100w, ${getImagePath(filename)} 500w`

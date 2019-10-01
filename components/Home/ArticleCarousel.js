@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { ON_DESKTOP, LAYOUT_SPACING, getImageSrcset } from '../../utils/style'
+import { ON_DESKTOP, LAYOUT_SPACING } from '../../utils/style'
 import { getImagePath } from '../../utils/path'
 import COLORS from '../../utils/color'
 
@@ -73,11 +73,7 @@ const ContentCarousel = React.memo(props => {
     <Wrapper {...rest}>
       {items.map(item => (
         <Item key={item.id}>
-          <ItemImage
-            srcSet={getImageSrcset(item.imageName)}
-            src={getImagePath(item.imageName)}
-            alt={`image of ${item.title}`}
-          />
+          <ItemImage src={getImagePath(item.imageName, true)} alt={`image of ${item.title}`} />
           <ItemInfoBox>
             <ItemCategoryName>{item.categoryName}</ItemCategoryName>
             <ItemTitle>{item.title}</ItemTitle>
