@@ -12,7 +12,7 @@ const MenuItem = styled.span`
   color: ${COLORS.DARK_GRAY};
   cursor: pointer;
   flex: 0 1 auto;
-  font-size: 20px;
+  font-size: 18px;
   margin: 5px;
   overflow: hidden;
   padding: 7px;
@@ -27,6 +27,7 @@ const MenuItem = styled.span`
     `}
 
   ${ON_DESKTOP`
+    font-size: 20px;
     padding: 17px;
   `}
 `
