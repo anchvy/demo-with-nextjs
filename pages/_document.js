@@ -32,10 +32,8 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta name="description" content="with nextjs" />
-          {this.props.styles}
           <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+          {this.props.styles}
         </Head>
         <body>
           <Main />

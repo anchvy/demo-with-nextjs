@@ -51,7 +51,7 @@ const ItemSubTitle = styled.span`
   line-height: 20px;
   overflow: hidden;
 `
-const ItemTitle = styled.span`
+const ItemTitle = styled.h3`
   color: ${COLORS.LIGHT_GREEN};
   font-size: 14px;
   margin-bottom: 3px;
@@ -73,7 +73,7 @@ const ContentCarousel = React.memo(props => {
     <Wrapper {...rest}>
       {items.map(item => (
         <Item key={item.id}>
-          <ItemImage src={getImagePath(item.imageName)} alt={item.title} />
+          <ItemImage src={getImagePath(item.imageName)} alt={`image of ${item.title}`} />
           <ItemInfoBox>
             <ItemTitle>{item.categoryName}</ItemTitle>
             <ItemSubTitle>{item.title}</ItemSubTitle>
