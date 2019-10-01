@@ -9,27 +9,35 @@ export const QUERY_TYPE = {
 }
 
 /**
- * Fetch mock data with given type and categoryname
+ * Fetch mock data with given type, categoryname and limit
  * @param {string} type - QUERY_TYPE
  * @param {string} categoryName
+ * @param {number} limit
  * @returns {object[]}
  */
-export const fetchMockData = (type, categoryName = 'All') => {
+export const fetchMockData = (type, categoryName = 'All', limit = 0) => {
+  let data
+
   switch (type) {
     case QUERY_TYPE.ALL:
-      return MOCK_DATA
+      data = MOCK_DATA
+      break
     case QUERY_TYPE.LATEST:
-      return MOCK_DATA.slice(0, 3)
+      data = MOCK_DATA
+      break
     case QUERY_TYPE.CATEGORY_NAME:
-      if (categoryName === 'All') return MOCK_DATA
-      return MOCK_DATA.filter(item => item.categoryName === categoryName)
+      data = categoryName === 'All' ? MOCK_DATA : MOCK_DATA.filter(item => item.categoryName === categoryName)
+      break
     case QUERY_TYPE.CATEGORIES:
-      return Object.keys(
+      data = Object.keys(
         MOCK_DATA.reduce((result, item) => ({ ...result, [item.categoryName]: item.categoryName }), {})
       )
+      break
     default:
-      return []
+      data = []
   }
+
+  return limit ? data.slice(0, limit) : data
 }
 /**
  * Fetch data from /json/config.json

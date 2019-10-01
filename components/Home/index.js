@@ -59,7 +59,7 @@ const ALL_CATEGORY_ITEM = 'All'
 const Home = () => {
   const [activeCategoryName, setActiveCategoryName] = useState(ALL_CATEGORY_ITEM)
   const articles = useMemo(() => fetchMockData(QUERY_TYPE.CATEGORY_NAME, activeCategoryName), [activeCategoryName])
-  const latestArticles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST), [])
+  const latestArticles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST, null, 3), [])
   const categoriesName = useMemo(() => fetchMockData(QUERY_TYPE.CATEGORIES), [])
   // menu-item: onclick handler
   const onClickMenuItem = useCallback(event => {

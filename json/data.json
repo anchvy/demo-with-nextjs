@@ -8,7 +8,7 @@
     "createdAt": "1 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-1.jpg"
+    "imageName": "article-knowledge.jpg"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "createdAt": "2 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-2.jpg"
+    "imageName": "article-philosophy.jpg"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "createdAt": "3 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-3.jpg"
+    "imageName": "article-life.jpg"
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "createdAt": "4 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-4.jpg"
+    "imageName": "article-knowledge.jpg"
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "createdAt": "5 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-5.jpg"
+    "imageName": "article-science.jpg"
   },
   {
     "id": 6,
@@ -63,7 +63,7 @@
     "createdAt": "6 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-6.jpg"
+    "imageName": "article-philosophy.jpg"
   },
   {
     "id": 7,
@@ -74,7 +74,7 @@
     "createdAt": "7 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-7.jpg"
+    "imageName": "article-life.jpg"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "createdAt": "8 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-8.jpg"
+    "imageName": "article-knowledge.jpg"
   },
   {
     "id": 9,
@@ -96,7 +96,7 @@
     "createdAt": "9 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-9.jpg"
+    "imageName": "article-science.jpg"
   },
   {
     "id": 10,
@@ -107,7 +107,7 @@
     "createdAt": "10 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-10.jpg"
+    "imageName": "article-philosophy.jpg"
   },
   {
     "id": 11,
@@ -118,7 +118,7 @@
     "createdAt": "11 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-11.jpg"
+    "imageName": "article-life.jpg"
   },
   {
     "id": 12,
@@ -129,6 +129,6 @@
     "createdAt": "12 Sep 2019",
     "view": "999",
     "comment": "99",
-    "imageName": "article-12.jpg"
+    "imageName": "article-science.jpg"
   }
 ]

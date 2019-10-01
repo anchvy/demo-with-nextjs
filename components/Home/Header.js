@@ -69,7 +69,7 @@ const CarouselBox = styled.aside`
  * -------------------------------------------- */
 
 const Header = () => {
-  const articles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST), [])
+  const articles = useMemo(() => fetchMockData(QUERY_TYPE.LATEST, null, 4), [])
 
   return (
     <Wrapper>
