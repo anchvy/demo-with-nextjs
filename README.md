@@ -17,3 +17,4 @@ $ yarn && yarn dev
 # Remarks
 - Recommended menu item is clickable
 - To show the article detail, please click on the article card
+- To display on IE, It might be displayed incorrectly due to grid layout (`display:-ms-grid;` is not implemented)
