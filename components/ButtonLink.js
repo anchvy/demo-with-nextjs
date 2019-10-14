@@ -24,7 +24,7 @@ const StyledButton = styled.a`
   ${props =>
     props.isSecondary &&
     `
-      color: ${COLORS.DARK_BLUE};
+      color: ${COLORS.DARK_BROWN};
       background: transparent;
 
       &:hover {

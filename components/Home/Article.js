@@ -14,7 +14,7 @@ const FloatingWrapper = styled.div`
   background: white;
   border-radius: 15px 15px 0 0;
   bottom: -1px;
-  color: ${COLORS.DARK_BLUE};
+  color: ${COLORS.DARK_BROWN};
   display: flex;
   flex-direction: column;
   max-height: 100%;
@@ -44,7 +44,7 @@ const StatBox = styled.div`
   ${props =>
     props.isActive &&
     css`
-      color: ${COLORS.DARK_BLUE};
+      color: ${COLORS.DARK_BROWN};
       > svg {
         fill-opacity: 1;
       }

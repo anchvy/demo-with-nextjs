@@ -34,7 +34,7 @@ const StyledContainer = styled(Container)`
   `}
 `
 const SectionHeader = styled.h2`
-  color: ${COLORS.DARK_BLUE};
+  color: ${COLORS.DARK_BROWN};
   font-size: 24px;
   font-weight: bold;
   text-align: center;

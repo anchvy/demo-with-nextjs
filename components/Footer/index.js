@@ -10,7 +10,7 @@ import RelatedLinksBox from './RelatedLinksBox'
 import { fetchConfig } from '../../utils/fetch'
 
 const Wrapper = styled.footer`
-  background: ${COLORS.DARK_BLUE};
+  background: ${COLORS.DARK_BROWN};
 `
 const StyledContainer = styled(Container)`
   padding-top: 40px;

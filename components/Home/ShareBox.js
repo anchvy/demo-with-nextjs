@@ -30,7 +30,7 @@ const InfoBox = styled.div`
   `}
 `
 const Title = styled.p`
-  color: ${COLORS.DARK_BLUE};
+  color: ${COLORS.DARK_BROWN};
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 9px;
@@ -40,7 +40,7 @@ const Title = styled.p`
   `}
 `
 const SubTitle = styled.p`
-  color: ${COLORS.LIGHT_BLUE};
+  color: ${COLORS.DARK_BLUE};
   font-size: 24px;
 `
 const ActionBox = styled.div`

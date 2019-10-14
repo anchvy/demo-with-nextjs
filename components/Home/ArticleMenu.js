@@ -22,7 +22,7 @@ const MenuItem = styled.span`
     props.isActive &&
     css`
       border-bottom: 2px solid ${COLORS.LIGHT_GREEN};
-      color: ${COLORS.DARK_BLUE};
+      color: ${COLORS.DARK_BROWN};
       font-style: italic;
     `}
 

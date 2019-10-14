@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 import { ReactComponent as IconFacebook } from '../../static/images/icon-facebook.svg'
 import { ReactComponent as IconInstagram } from '../../static/images/icon-instagram.svg'
 import { ReactComponent as IconTwitter } from '../../static/images/icon-twitter.svg'
 import { ReactComponent as IconGooglePlus } from '../../static/images/icon-google-plus.svg'
 import COLORS from '../../utils/color'
 import { fetchConfig } from '../../utils/fetch'
+import Logo from '../Logo'
 
 const Wrapper = styled.section`
   display: flex;
@@ -74,7 +74,7 @@ const SOCIAL_MEDIA_CONFIG = [
 const ContactBox = () => {
   return (
     <Wrapper>
-      <IconLogo height={48} fill="white" />
+      <Logo />
       <Description>{fetchConfig('description')}</Description>
       <SocialMediaBox>
         {SOCIAL_MEDIA_CONFIG.map(item => (

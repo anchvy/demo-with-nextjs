@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import ButtonLink from '../ButtonLink'
 import { NavItemsContainer } from './styled'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
-import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import COLORS from '../../utils/color'
+import Logo from '../Logo'
 
 const ActionBox = styled.div`
   flex-shrink: 0;
@@ -18,7 +18,7 @@ const ActionBox = styled.div`
 `
 const SearchBox = styled.div`
   flex: 1 0 auto;
-  margin: 0 60px;
+  margin: 0 60px 0 20px;
 `
 const SearchContainer = styled.div`
   border: 1px solid ${COLORS.GRAY};
@@ -55,12 +55,10 @@ const StyledNavContainer = styled(NavItemsContainer)`
 
 const NavigationBarDesktop = React.memo(props => {
   const { isCustomStyle } = props
-  // custom style
-  const svgColor = isCustomStyle ? 'black' : 'white'
 
   return (
     <StyledNavContainer isCustomStyle={isCustomStyle}>
-      <IconLogo height={48} fill={svgColor} />
+      <Logo width={55} />
       <SearchBox>
         <SearchContainer>
           <SearchInput type="text" placeholder="Search...." />

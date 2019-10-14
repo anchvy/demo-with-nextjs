@@ -6,10 +6,10 @@ import dynamic from 'next/dynamic'
 import { ReactComponent as IconClose } from '../../static/images/icon-close.svg'
 import { ReactComponent as IconMenu } from '../../static/images/icon-menu.svg'
 import { ReactComponent as IconSearch } from '../../static/images/icon-search.svg'
-import { ReactComponent as IconLogo } from '../../static/images/logo.svg'
 
 import ButtonLink from '../ButtonLink'
 import { NavItemsContainer } from './styled'
+import Logo from '../Logo'
 
 const SearchBarMobile = dynamic(import('./SearchBarMobile'))
 const SideMenuMobile = dynamic(import('./SideMenuMobile'))
@@ -51,8 +51,8 @@ const NavigationBarMobile = React.memo(props => {
   // custom style
   const shouldChangeStyle = isCustomStyle || isOpenSideBar || isOpenSearchBar
   const svgColor = shouldChangeStyle ? 'black' : 'white'
-  const svgLogoSize = shouldChangeStyle ? 29 : 48
   const svgIconSize = shouldChangeStyle ? 22 : 28
+  const logoSize = shouldChangeStyle ? 33 : 60
 
   return (
     <>
@@ -66,7 +66,7 @@ const NavigationBarMobile = React.memo(props => {
         >
           <MenuIcon width={svgIconSize} height={svgIconSize} fill={svgColor} />
         </IconButton>
-        <IconLogo height={svgLogoSize} fill={svgColor} />
+        <Logo width={logoSize} />
         <IconButton
           as="div"
           aria-label="Search"

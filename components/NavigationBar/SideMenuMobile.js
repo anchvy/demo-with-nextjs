@@ -19,7 +19,7 @@ const ItemBox = styled.div`
 `
 const Item = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: ${COLORS.DARK_BLUE};
+  color: ${COLORS.DARK_BROWN};
   display: flex;
   flex-direction: column;
   font-style: italic;

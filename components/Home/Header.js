@@ -75,7 +75,7 @@ const Header = () => {
     <Wrapper>
       <StyledContainer>
         <TitleBox>
-          <Title>Explore the world!</Title>
+          <Title>Demo with Nextjs!</Title>
           <SubTitle>The past always looks better than it was. It is only pleasant because it is not here.</SubTitle>
         </TitleBox>
         <CarouselBox>
