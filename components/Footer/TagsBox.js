@@ -49,7 +49,7 @@ const TagItem = styled.a`
  * REACT COMPONENT
  * -------------------------------------------- */
 
-const TAGS_CONFIG = ['travel', 'bangkok', 'beach', 'city', 'night market']
+const TAGS_CONFIG = ['javascript', 'react.js', 'html', 'css', 'next.js', 'styled-components']
 
 const TagsBox = () => (
   <Wrapper>
